@@ -16,5 +16,10 @@ namespace CECOT_PROYECT
         {
             InitializeComponent();
         }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
