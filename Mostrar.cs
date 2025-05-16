@@ -27,14 +27,11 @@ namespace CECOT_PROYECT
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridView1.ReadOnly = true;
-        }
-
         private void btnregresar_Click(object sender, EventArgs e)
         {
-
+            CentroControl cerrar = new CentroControl();
+            cerrar.Show();
+            this.Close();
         }
 
         private void btnregresar_MouseEnter(object sender, EventArgs e)
@@ -83,6 +80,18 @@ namespace CECOT_PROYECT
             btnEliminar.BackColor = Color.White;
             btnEliminar.ForeColor = Color.Black;
             btnEliminar.FlatAppearance.BorderColor = Color.DimGray;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Editar_Click(object sender, EventArgs e)
+        {
+            Formulario agregar = new Formulario();
+            agregar.Show();
+            this.Close();
         }
     }
 }

@@ -21,5 +21,12 @@ namespace CECOT_PROYECT
         {
 
         }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            CentroControl cerrar = new CentroControl();
+            cerrar.Show();
+            this.Close();
+        }
     }
 }
