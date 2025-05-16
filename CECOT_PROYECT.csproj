@@ -52,6 +52,12 @@
     <Compile Include="CentroControl.Designer.cs">
       <DependentUpon>CentroControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario.Designer.cs">
+      <DependentUpon>Formulario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mostrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CentroControl.resx">
       <DependentUpon>CentroControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario.resx">
+      <DependentUpon>Formulario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mostrar.resx">
       <DependentUpon>Mostrar.cs</DependentUpon>

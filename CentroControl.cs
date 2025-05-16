@@ -123,5 +123,12 @@ namespace CECOT_PROYECT
             login.Show();
             this.Hide();
         }
+
+        private void Visualizar_MouseClick(object sender, MouseEventArgs e)
+        {
+            Mostrar recluso = new Mostrar();
+            recluso.Show();
+            this.Hide();
+        }
     }
 }

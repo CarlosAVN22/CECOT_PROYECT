@@ -31,5 +31,58 @@ namespace CECOT_PROYECT
         {
             dataGridView1.ReadOnly = true;
         }
+
+        private void btnregresar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnregresar_MouseEnter(object sender, EventArgs e)
+        {
+            btnregresar.Size = new Size(btnregresar.Width + 5, btnregresar.Height + 5);
+            btnregresar.BackColor = Color.DimGray;
+            btnregresar.ForeColor = Color.White;
+            btnregresar.FlatAppearance.BorderColor = Color.White;
+        }
+
+        private void btnregresar_MouseLeave(object sender, EventArgs e)
+        {
+            btnregresar.Size = new Size(btnregresar.Width - 5, btnregresar.Height - 5);
+            btnregresar.BackColor = Color.White;
+            btnregresar.ForeColor = Color.Black;
+            btnregresar.FlatAppearance.BorderColor = Color.DimGray;
+        }
+
+        private void Editar_MouseEnter(object sender, EventArgs e)
+        {
+            Editar.Size = new Size(Editar.Width + 5, Editar.Height + 5);
+            Editar.BackColor = Color.DimGray;
+            Editar.ForeColor = Color.White;
+            Editar.FlatAppearance.BorderColor = Color.White;
+        }
+
+        private void Editar_MouseLeave(object sender, EventArgs e)
+        {
+            Editar.Size = new Size(Editar.Width - 5, Editar.Height - 5);
+            Editar.BackColor = Color.White;
+            Editar.ForeColor = Color.Black;
+            Editar.FlatAppearance.BorderColor = Color.DimGray;
+        }
+
+        private void btnEliminar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEliminar.Size = new Size(btnEliminar.Width + 5, btnEliminar.Height + 5);
+            btnEliminar.BackColor = Color.DimGray;
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.FlatAppearance.BorderColor = Color.White;
+        }
+
+        private void btnEliminar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEliminar.Size = new Size(btnEliminar.Width - 5, btnEliminar.Height - 5);
+            btnEliminar.BackColor = Color.White;
+            btnEliminar.ForeColor = Color.Black;
+            btnEliminar.FlatAppearance.BorderColor = Color.DimGray;
+        }
     }
 }
