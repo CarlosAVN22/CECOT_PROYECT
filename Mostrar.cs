@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CECOT_PROYECT
 {
-    public partial class Registrar : Form
+    public partial class Mostrar : Form
     {
-        public Registrar()
+        public Mostrar()
         {
             InitializeComponent();
         }

@@ -46,35 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buscar.cs">
+    <Compile Include="CentroControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buscar.Designer.cs">
-      <DependentUpon>Buscar.cs</DependentUpon>
+    <Compile Include="CentroControl.Designer.cs">
+      <DependentUpon>CentroControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cerrar.cs">
+    <Compile Include="Mostrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cerrar.Designer.cs">
-      <DependentUpon>Cerrar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Eliminar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Eliminar.Designer.cs">
-      <DependentUpon>Eliminar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Registrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registrar.Designer.cs">
-      <DependentUpon>Registrar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Registro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registro.Designer.cs">
-      <DependentUpon>Registro.cs</DependentUpon>
+    <Compile Include="Mostrar.Designer.cs">
+      <DependentUpon>Mostrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -84,14 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Buscar.resx">
-      <DependentUpon>Buscar.cs</DependentUpon>
+    <EmbeddedResource Include="CentroControl.resx">
+      <DependentUpon>CentroControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registrar.resx">
-      <DependentUpon>Registrar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registro.resx">
-      <DependentUpon>Registro.cs</DependentUpon>
+    <EmbeddedResource Include="Mostrar.resx">
+      <DependentUpon>Mostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -122,6 +101,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\VERDEEE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CECOT_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CECOT_Logo-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

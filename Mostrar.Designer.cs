@@ -1,6 +1,6 @@
 ﻿namespace CECOT_PROYECT
 {
-    partial class Registrar
+    partial class Mostrar
     {
         /// <summary>
         /// Required designer variable.
