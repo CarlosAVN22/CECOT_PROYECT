@@ -38,11 +38,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
+            this.txtcelda = new System.Windows.Forms.TextBox();
+            this.txtcargos = new System.Windows.Forms.TextBox();
+            this.txtdui = new System.Windows.Forms.TextBox();
             this.txtedad = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtfechaIngreso = new System.Windows.Forms.TextBox();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -162,50 +162,50 @@
             this.txtnombre.Size = new System.Drawing.Size(329, 35);
             this.txtnombre.TabIndex = 29;
             // 
+            // txtcelda
+            // 
+            this.txtcelda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcelda.Location = new System.Drawing.Point(200, 250);
+            this.txtcelda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtcelda.Name = "txtcelda";
+            this.txtcelda.Size = new System.Drawing.Size(329, 35);
+            this.txtcelda.TabIndex = 30;
+            // 
+            // txtcargos
+            // 
+            this.txtcargos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcargos.Location = new System.Drawing.Point(200, 400);
+            this.txtcargos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtcargos.Name = "txtcargos";
+            this.txtcargos.Size = new System.Drawing.Size(329, 35);
+            this.txtcargos.TabIndex = 31;
+            // 
+            // txtdui
+            // 
+            this.txtdui.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdui.Location = new System.Drawing.Point(200, 350);
+            this.txtdui.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtdui.Name = "txtdui";
+            this.txtdui.Size = new System.Drawing.Size(329, 35);
+            this.txtdui.TabIndex = 32;
+            // 
             // txtedad
             // 
             this.txtedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtedad.Location = new System.Drawing.Point(200, 250);
+            this.txtedad.Location = new System.Drawing.Point(200, 300);
             this.txtedad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtedad.Name = "txtedad";
             this.txtedad.Size = new System.Drawing.Size(329, 35);
-            this.txtedad.TabIndex = 30;
+            this.txtedad.TabIndex = 33;
             // 
-            // textBox1
+            // txtfechaIngreso
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(200, 400);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(329, 35);
-            this.textBox1.TabIndex = 31;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(200, 350);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(329, 35);
-            this.textBox2.TabIndex = 32;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(200, 300);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(329, 35);
-            this.textBox3.TabIndex = 33;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(200, 450);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(329, 35);
-            this.textBox4.TabIndex = 34;
+            this.txtfechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfechaIngreso.Location = new System.Drawing.Point(200, 450);
+            this.txtfechaIngreso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtfechaIngreso.Name = "txtfechaIngreso";
+            this.txtfechaIngreso.Size = new System.Drawing.Size(329, 35);
+            this.txtfechaIngreso.TabIndex = 34;
             // 
             // btn_guardar
             // 
@@ -242,14 +242,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
-            this.ClientSize = new System.Drawing.Size(628, 562);
+            this.ClientSize = new System.Drawing.Size(628, 572);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtfechaIngreso);
             this.Controls.Add(this.txtedad);
+            this.Controls.Add(this.txtdui);
+            this.Controls.Add(this.txtcargos);
+            this.Controls.Add(this.txtcelda);
             this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label8);
@@ -281,11 +281,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.TextBox txtcelda;
+        private System.Windows.Forms.TextBox txtcargos;
+        private System.Windows.Forms.TextBox txtdui;
         private System.Windows.Forms.TextBox txtedad;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtfechaIngreso;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_cancelar;
     }

@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Cecot.cs" />
+    <Compile Include="Resources\cecotAgregar.cs" />
+    <Compile Include="Resources\conexionBD.cs" />
     <EmbeddedResource Include="CentroControl.resx">
       <DependentUpon>CentroControl.cs</DependentUpon>
     </EmbeddedResource>
