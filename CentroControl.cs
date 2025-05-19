@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CECOT_PROYECT.Resources;
+
 namespace CECOT_PROYECT
 {
     public partial class CentroControl : Form
@@ -19,7 +21,7 @@ namespace CECOT_PROYECT
 
         private void Buscar_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = cecotAgregar.PresentarRegistros();
         }
 
         private void label1_Click(object sender, EventArgs e)

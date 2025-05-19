@@ -12,9 +12,10 @@ namespace CECOT_PROYECT.Resources
     {
         public static SqlConnection ObtenerConexion()
         {
-            SqlConnection conn = new SqlConnection("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CECOT_1;Data Source=DESKTOP-42P3LD3\\SQLEXPRESS");
-            conn.Open();
-            return conn;
+
+            SqlConnection connectionString = new SqlConnection("Server=DESKTOP-42P3LD3\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;");
+           connectionString.Open();
+            return connectionString;
 
         }
 

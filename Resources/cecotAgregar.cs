@@ -30,19 +30,48 @@ namespace CECOT_PROYECT.Resources
                         cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
 
                         conexion.Open();
-                        retorna = cmd.ExecuteNonQuery(); // Devuelve el número de filas afectadas
+                        retorna = cmd.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Aquí podrías registrar el error o lanzar una excepción personalizada
+
                 MessageBox.Show("Error: " + ex.Message);
             }
-            return retorna; // Si todo va bien, retornará > 0
+            return retorna;
         }
-    }
 
-        
-    
+
+        public static List<Cecot> PresentarRegistros()
+        {
+            List<Cecot> lista = new List<Cecot>();
+
+            using (SqlConnection conexion = conexionBD.ObtenerConexion())
+            {
+                string query = "SELECT * FROM REOS";
+                SqlCommand comando = new SqlCommand(query, conexion);
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Cecot persona = new Cecot();
+                    persona.Id = reader.GetInt32(0);
+                    persona.Nombre = reader.GetString(1);
+                    persona.Edad = reader.GetString(2);
+                    persona.Celda = reader.GetString(3);
+                    persona.Dui = reader.GetString(4);
+                    persona.Cargos = reader.GetString(5);
+                    persona.FechaIngreso = reader.GetString(6);
+                    lista.Add(persona);
+                }
+
+                conexion.Close();
+                return lista;
+            }
+
+
+        }
+
+    }
 }
