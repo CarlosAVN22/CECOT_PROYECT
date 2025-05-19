@@ -136,7 +136,7 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            Mostrar editar = new Mostrar();
+            EditarForm editar = new EditarForm();
             editar.Show();
         }
 

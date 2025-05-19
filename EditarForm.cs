@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CECOT_PROYECT
 {
-    public partial class Mostrar : Form
+    public partial class EditarForm : Form
     {
-        public Mostrar()
+        public EditarForm()
         {
             InitializeComponent();
         }
@@ -52,18 +52,18 @@ namespace CECOT_PROYECT
 
         private void Editar_MouseEnter(object sender, EventArgs e)
         {
-            Editar.Size = new Size(Editar.Width + 5, Editar.Height + 5);
-            Editar.BackColor = Color.DimGray;
-            Editar.ForeColor = Color.White;
-            Editar.FlatAppearance.BorderColor = Color.White;
+            Guardar.Size = new Size(Guardar.Width + 5, Guardar.Height + 5);
+            Guardar.BackColor = Color.DimGray;
+            Guardar.ForeColor = Color.White;
+            Guardar.FlatAppearance.BorderColor = Color.White;
         }
 
         private void Editar_MouseLeave(object sender, EventArgs e)
         {
-            Editar.Size = new Size(Editar.Width - 5, Editar.Height - 5);
-            Editar.BackColor = Color.White;
-            Editar.ForeColor = Color.Black;
-            Editar.FlatAppearance.BorderColor = Color.DimGray;
+            Guardar.Size = new Size(Guardar.Width - 5, Guardar.Height - 5);
+            Guardar.BackColor = Color.White;
+            Guardar.ForeColor = Color.Black;
+            Guardar.FlatAppearance.BorderColor = Color.DimGray;
         }
 
         private void btnEliminar_MouseEnter(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            EditarForm agregar = new EditarForm();
+            Formulario agregar = new Formulario();
             agregar.Show();
             this.Close();
         }

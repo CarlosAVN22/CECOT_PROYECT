@@ -15,7 +15,7 @@ namespace CECOT_PROYECT.Resources
             int retorna = 0; // Inicialmente 0
             try
             {
-                using (SqlConnection conexion = new SqlConnection("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CECOT_1;Data Source=DESKTOP-42P3LD3\\SQLEXPRESS"))
+                using (SqlConnection conexion = new SqlConnection("Server=CRIS;Database=CECOT_1;Trusted_Connection=true;"))
                 {
                     string query = @"INSERT INTO REOS (Nombre, Edad, Celda, Dui, Cargos, FechaIngreso) 
                              VALUES (@Nombre, @Edad, @Celda, @Dui, @Cargos, @FechaIngreso)";
