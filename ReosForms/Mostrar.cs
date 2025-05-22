@@ -59,7 +59,7 @@ namespace CECOT_PROYECT
 
         private void btnregresar_Click(object sender, EventArgs e)
         {
-            CentroControl cerrar = new CentroControl();
+            ReosCRUD cerrar = new ReosCRUD();
             cerrar.Show();
             this.Close();
         }

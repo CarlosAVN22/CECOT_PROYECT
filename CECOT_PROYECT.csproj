@@ -46,22 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CentroControl.cs">
+    <Compile Include="AdministradoresForms\AdministradoresCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CentroControl.Designer.cs">
-      <DependentUpon>CentroControl.cs</DependentUpon>
+    <Compile Include="AdministradoresForms\AdministradoresCRUD.Designer.cs">
+      <DependentUpon>AdministradoresCRUD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario.cs">
+    <Compile Include="CeldasForms\CeldasCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulario.Designer.cs">
-      <DependentUpon>Formulario.cs</DependentUpon>
+    <Compile Include="CeldasForms\CeldasCRUD.Designer.cs">
+      <DependentUpon>CeldasCRUD.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditarForm.cs">
+    <Compile Include="ReosForms\ReosCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="ReosForms\ReosCRUD.Designer.cs">
+      <DependentUpon>ReosCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReosForms\AgregarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReosForms\AgregarForm.Designer.cs">
+      <DependentUpon>AgregarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReosForms\EditarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReosForms\.Designer.cs">
       <DependentUpon>EditarForm.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -71,10 +83,10 @@
     <Compile Include="MenuOpciones.Designer.cs">
       <DependentUpon>MenuOpciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mostrar.cs">
+    <Compile Include="ReosForms\Mostrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mostrar.Designer.cs">
+    <Compile Include="ReosForms\Mostrar.Designer.cs">
       <DependentUpon>Mostrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -86,21 +98,39 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Cecot.cs" />
-    <Compile Include="Resources\cecotAgregar.cs" />
+    <Compile Include="ReosForms\cecotAgregar.cs" />
     <Compile Include="Resources\conexionBD.cs" />
-    <EmbeddedResource Include="CentroControl.resx">
-      <DependentUpon>CentroControl.cs</DependentUpon>
+    <Compile Include="SeccionesForms\SeccionesCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeccionesForms\SeccionesCRUD.Designer.cs">
+      <DependentUpon>SeccionesCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrabajadoresForms\TrabajdoresCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrabajadoresForms\TrabajdoresCRUD.Designer.cs">
+      <DependentUpon>TrabajdoresCRUD.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdministradoresForms\AdministradoresCRUD.resx">
+      <DependentUpon>AdministradoresCRUD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulario.resx">
-      <DependentUpon>Formulario.cs</DependentUpon>
+    <EmbeddedResource Include="CeldasForms\CeldasCRUD.resx">
+      <DependentUpon>CeldasCRUD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditarForm.resx">
+    <EmbeddedResource Include="ReosForms\ReosCRUD.resx">
+      <DependentUpon>ReosCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReosForms\AgregarForm.resx">
+      <DependentUpon>AgregarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReosForms\EditarForm.resx">
       <DependentUpon>EditarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuOpciones.resx">
       <DependentUpon>MenuOpciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mostrar.resx">
+    <EmbeddedResource Include="ReosForms\Mostrar.resx">
       <DependentUpon>Mostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -116,6 +146,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SeccionesForms\SeccionesCRUD.resx">
+      <DependentUpon>SeccionesCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrabajadoresForms\TrabajdoresCRUD.resx">
+      <DependentUpon>TrabajdoresCRUD.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Cecot.bak" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -169,5 +205,6 @@
   <ItemGroup>
     <None Include="Resources\lista-del-portapapeles.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

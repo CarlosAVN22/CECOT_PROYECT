@@ -12,9 +12,9 @@ using CECOT_PROYECT.Resources;
 
 namespace CECOT_PROYECT
 {
-    public partial class Formulario : Form
+    public partial class AgregarForm : Form
     {
-        public Formulario()
+        public AgregarForm()
         {
             InitializeComponent();
         }
@@ -35,7 +35,7 @@ namespace CECOT_PROYECT
             if (result > 0)
             {
                 MessageBox.Show("Persona agregada correctamente");
-                CentroControl agregar = new CentroControl();
+                ReosCRUD agregar = new ReosCRUD();
                 agregar.Show();
                 this.Close();
             }
@@ -47,9 +47,14 @@ namespace CECOT_PROYECT
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            CentroControl cerrar = new CentroControl();
+            ReosCRUD cerrar = new ReosCRUD();
             cerrar.Show();
             this.Close();
+        }
+
+        private void Formulario_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -13,17 +13,17 @@ namespace CECOT_PROYECT
 {
     public partial class EditarForm : Form
     {
-        private CentroControl CentroControlMain;
+        private ReosCRUD CentroControlMain;
         private int Editar = -1;
         private bool Edicion = false;
 
-        public EditarForm(CentroControl Main)
+        public EditarForm(ReosCRUD Main)
         {
             InitializeComponent();
             CentroControlMain = Main;
         }
 
-        public EditarForm(CentroControl Main, string ID, string Nombre, string Celda, string Edad, string DUI, string Cargos, string Ingreso, int fila)
+        public EditarForm(ReosCRUD Main, string ID, string Nombre, string Celda, string Edad, string DUI, string Cargos, string Ingreso, int fila)
         {
             InitializeComponent();
             CentroControlMain = Main;
@@ -53,7 +53,7 @@ namespace CECOT_PROYECT
 
         private void btnregresar_Click(object sender, EventArgs e)
         {
-            CentroControl cerrar = new CentroControl();
+            ReosCRUD cerrar = new ReosCRUD();
             cerrar.Show();
             this.Close();
         }

@@ -52,8 +52,36 @@ namespace CECOT_PROYECT
 
         private void btnReos_Click(object sender, EventArgs e)
         {
-            CentroControl reosCRUD = new CentroControl();
+            ReosCRUD reosCRUD = new ReosCRUD();
             reosCRUD.Show();
+            this.Hide();
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            AdministradoresCRUD administradoresCRUD = new AdministradoresCRUD();
+            administradoresCRUD.Show();
+            this.Hide();
+        }
+
+        private void btnTrabajadores_Click(object sender, EventArgs e)
+        {
+            TrabajadoresCRUD trabajadoresCRUD = new TrabajadoresCRUD();
+            trabajadoresCRUD.Show();
+            this.Hide();
+        }
+
+        private void btnSecciones_Click(object sender, EventArgs e)
+        {
+            SeccionesCRUD seccionesCRUD = new SeccionesCRUD(); 
+            seccionesCRUD.Show();
+            this.Hide();    
+        }
+
+        private void btnCeldas_Click(object sender, EventArgs e)
+        {
+            CeldasCRUD celdasCRUD = new CeldasCRUD();  
+            celdasCRUD.Show();
             this.Hide();
         }
     }

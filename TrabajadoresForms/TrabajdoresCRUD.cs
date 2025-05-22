@@ -36,8 +36,7 @@ namespace CECOT_PROYECT
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            Formulario agregar = new Formulario();
-            agregar.Show();
+            
         }
 
         private void Agregar_MouseEnter(object sender, EventArgs e)
@@ -129,21 +128,17 @@ namespace CECOT_PROYECT
 
         private void Visualizar_MouseClick(object sender, MouseEventArgs e)
         {
-            Mostrar recluso = new Mostrar();
-            recluso.Show();
-            this.Hide();
+  
         }
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            EditarForm editar = new EditarForm();
-            editar.Show();
+        
         }
 
         private void Visualizar_Click(object sender, EventArgs e)
         {
-            Mostrar irMostar = new Mostrar();
-            irMostar.Show();
+            
         }
     }
 }
