@@ -17,7 +17,7 @@ namespace CECOT_PROYECT.Resources
 
             try
             {
-               using (SqlConnection conexion = new SqlConnection("Server=CRIS;Database=CECOT_1;Trusted_Connection=true;"))
+               using (SqlConnection conexion = new SqlConnection("Server=JOSSELYN\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;"))
                {
                    string query = @"INSERT INTO REOS (Nombre, Edad, Celda, Dui, Cargos, FechaIngreso) 
                             VALUES (@Nombre, @Edad, @Celda, @Dui, @Cargos, @FechaIngreso)";
@@ -51,7 +51,7 @@ namespace CECOT_PROYECT.Resources
             bool actualizado = false;
             try
             {
-                using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-BPP96GF;Database=CECOT_1;Trusted_Connection=true;"))
+                using (SqlConnection conexion = new SqlConnection("Server=JOSSELYN\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;"))
                 {
                     string query = @"UPDATE REOS 
                              SET Nombre = @Nombre,
