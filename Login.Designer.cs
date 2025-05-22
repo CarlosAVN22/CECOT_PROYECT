@@ -45,11 +45,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(301, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.label1.Location = new System.Drawing.Point(339, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(10);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(18, 16, 18, 16);
-            this.label1.Size = new System.Drawing.Size(36, 107);
+            this.label1.Padding = new System.Windows.Forms.Padding(20);
+            this.label1.Size = new System.Drawing.Size(40, 128);
             this.label1.TabIndex = 0;
             // 
             // label2
@@ -58,9 +58,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(73, 249);
+            this.label2.Location = new System.Drawing.Point(82, 311);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 23);
+            this.label2.Size = new System.Drawing.Size(127, 28);
             this.label2.TabIndex = 3;
             this.label2.Text = "USUARIO :";
             // 
@@ -70,29 +70,29 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(26, 297);
+            this.label3.Location = new System.Drawing.Point(29, 371);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 23);
+            this.label3.Size = new System.Drawing.Size(185, 28);
             this.label3.TabIndex = 4;
             this.label3.Text = "CONTRASEÑA :";
             // 
             // tbbUser
             // 
             this.tbbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbbUser.Location = new System.Drawing.Point(187, 242);
+            this.tbbUser.Location = new System.Drawing.Point(210, 302);
             this.tbbUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbbUser.Name = "tbbUser";
-            this.tbbUser.Size = new System.Drawing.Size(273, 34);
+            this.tbbUser.Size = new System.Drawing.Size(307, 39);
             this.tbbUser.TabIndex = 5;
             this.tbbUser.TextChanged += new System.EventHandler(this.tbbUser_TextChanged);
             // 
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.Location = new System.Drawing.Point(187, 286);
+            this.tbPassword.Location = new System.Drawing.Point(210, 358);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(273, 34);
+            this.tbPassword.Size = new System.Drawing.Size(307, 39);
             this.tbPassword.TabIndex = 6;
             this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
@@ -101,9 +101,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::CECOT_PROYECT.Properties.Resources.CECOT_Logo_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(118, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(133, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(259, 225);
+            this.pictureBox1.Size = new System.Drawing.Size(291, 281);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -115,9 +116,10 @@
             this.Cerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cerrar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cerrar.Location = new System.Drawing.Point(263, 364);
+            this.Cerrar.Location = new System.Drawing.Point(307, 455);
+            this.Cerrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Cerrar.Name = "Cerrar";
-            this.Cerrar.Size = new System.Drawing.Size(131, 54);
+            this.Cerrar.Size = new System.Drawing.Size(147, 68);
             this.Cerrar.TabIndex = 8;
             this.Cerrar.Text = "Cerrar";
             this.Cerrar.UseVisualStyleBackColor = true;
@@ -132,11 +134,12 @@
             this.Iniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.Iniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Iniciar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Iniciar.Location = new System.Drawing.Point(91, 364);
+            this.Iniciar.Location = new System.Drawing.Point(98, 455);
+            this.Iniciar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Iniciar.Name = "Iniciar";
-            this.Iniciar.Size = new System.Drawing.Size(131, 54);
+            this.Iniciar.Size = new System.Drawing.Size(147, 68);
             this.Iniciar.TabIndex = 9;
-            this.Iniciar.Text = "Iniciar Secion";
+            this.Iniciar.Text = "Iniciar Sesión";
             this.Iniciar.UseVisualStyleBackColor = true;
             this.Iniciar.Click += new System.EventHandler(this.Iniciar_Click);
             this.Iniciar.MouseEnter += new System.EventHandler(this.Iniciar_MouseEnter);
@@ -144,12 +147,12 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(491, 482);
+            this.ClientSize = new System.Drawing.Size(552, 602);
             this.Controls.Add(this.Iniciar);
             this.Controls.Add(this.Cerrar);
             this.Controls.Add(this.pictureBox1);

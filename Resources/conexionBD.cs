@@ -13,7 +13,7 @@ namespace CECOT_PROYECT.Resources
         public static SqlConnection ObtenerConexion()
         {
 
-            SqlConnection connectionString = new SqlConnection("Server=CRIS;Database=CECOT_1;Trusted_Connection=true;");
+            SqlConnection connectionString = new SqlConnection("Server=AFANEE;Database=CECOT_1;Trusted_Connection=true;");
            connectionString.Open();
             return connectionString;
 

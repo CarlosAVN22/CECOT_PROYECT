@@ -65,6 +65,12 @@
       <DependentUpon>EditarForm.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MenuOpciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuOpciones.Designer.cs">
+      <DependentUpon>MenuOpciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mostrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditarForm.resx">
       <DependentUpon>EditarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuOpciones.resx">
+      <DependentUpon>MenuOpciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mostrar.resx">
       <DependentUpon>Mostrar.cs</DependentUpon>
@@ -132,6 +141,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CECOT_Logo-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maletin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\llave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios-alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\llave %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\huella-dactilar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\base-de-datos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista-del-portapapeles.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

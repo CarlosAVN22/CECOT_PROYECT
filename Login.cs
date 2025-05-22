@@ -45,7 +45,7 @@ namespace CECOT_PROYECT
         {
             if (tbbUser.Text=="admin1"  && tbPassword.Text =="caca")
             {
-                CentroControl buscar = new CentroControl();
+                MenuOpciones buscar = new MenuOpciones();
                 buscar.Show();
                 this.Hide();
             }

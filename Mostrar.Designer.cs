@@ -101,9 +101,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(289, 219);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 25);
+            this.label4.Size = new System.Drawing.Size(71, 25);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Edad :";
+            this.label4.Text = "Edad ";
             // 
             // label5
             // 
@@ -113,9 +113,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(294, 282);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 25);
+            this.label5.Size = new System.Drawing.Size(53, 25);
             this.label5.TabIndex = 7;
-            this.label5.Text = "DUI :";
+            this.label5.Text = "DUI ";
             // 
             // label6
             // 
@@ -125,9 +125,9 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(266, 351);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 25);
+            this.label6.Size = new System.Drawing.Size(91, 25);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Cargos :";
+            this.label6.Text = "Cargos ";
             // 
             // label7
             // 
@@ -137,9 +137,9 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(284, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 25);
+            this.label7.Size = new System.Drawing.Size(80, 25);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Celda :";
+            this.label7.Text = "Celda ";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
@@ -150,9 +150,9 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(157, 431);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(200, 25);
+            this.label8.Size = new System.Drawing.Size(194, 25);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Fecha de ingreso :";
+            this.label8.Text = "Fecha de ingreso ";
             // 
             // btnEliminar
             // 
