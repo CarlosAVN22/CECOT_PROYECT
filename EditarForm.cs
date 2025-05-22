@@ -7,14 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CECOT_PROYECT.Resources;
 
 namespace CECOT_PROYECT
 {
     public partial class EditarForm : Form
     {
-        public EditarForm()
+        private CentroControl CentroControlMain;
+        private int Editar = -1;
+        private bool Edicion = false;
+
+        public EditarForm(CentroControl Main)
         {
             InitializeComponent();
+            CentroControlMain = Main;
+        }
+
+        public EditarForm(CentroControl Main, string ID, string Nombre, string Celda, string Edad, string DUI, string Cargos, string Ingreso, int fila)
+        {
+            InitializeComponent();
+            CentroControlMain = Main;
+            Edicion = true;
+            Editar = fila;
+
+            txtid.Text = ID;
+            txtnombre.Text = Nombre;
+            txtsentencia.Text = Celda;
+            txtedad.Text = Edad;
+            txtdui.Text = DUI;
+            txtcargos.Text = Cargos;
+            txtfechaingreso.Text = Ingreso;
+
+            txtid.Enabled = false;
         }
 
         private void Registrar_Load(object sender, EventArgs e)
@@ -89,9 +113,51 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            Formulario agregar = new Formulario();
-            agregar.Show();
+            Cecot persona = new Cecot
+            {
+                Id = int.Parse(txtid.Text),
+                Nombre = txtnombre.Text,
+                Edad = txtedad.Text, // o int.Parse(txtEdad.Text) si usas int
+                Celda = txtsentencia.Text,
+                Dui = txtdui.Text,
+                Cargos = txtcargos.Text,
+                FechaIngreso = txtfechaingreso.Text // o dtpFechaIngreso.Value si usas DateTimePicker
+            };
+
+            bool exito = cecotAgregar.ActualizarPersona(persona);
+
+            if(Edicion && Editar != -1)
+            {
+                CentroControlMain.EditarFila(Editar,persona);  
+            }
+
+            
+
+            if (exito)
+                MessageBox.Show("Persona actualizada correctamente.");
+            else
+                MessageBox.Show("No se pudo actualizar la persona.");
+
+
             this.Close();
+
+            //Formulario agregar = new Formulario();
+            //agregar.Show();
+            //this.Close();
+        }
+
+
+
+
+
+        private void txtedad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

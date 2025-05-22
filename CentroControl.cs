@@ -24,6 +24,23 @@ namespace CECOT_PROYECT
             dataGridView1.DataSource = cecotAgregar.PresentarRegistros();
         }
 
+        public void AgregarFila(string ID, string Nombre, string Celda, string Edad, string DUI, string Cargos, string Ingreso)
+        {
+            dataGridView1.Rows.Add(ID, Nombre, Celda, Edad, DUI, Cargos, Ingreso);
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+
+        public void EditarFila(int fila,Cecot persona)
+        {
+            dataGridView1.Rows[fila].Cells[1].Value = persona.Nombre;
+            dataGridView1.Rows[fila].Cells[2].Value = persona.Celda;
+            dataGridView1.Rows[fila].Cells[3].Value = persona.Edad;
+            dataGridView1.Rows[fila].Cells[4].Value = persona.Dui;
+            dataGridView1.Rows[fila].Cells[5].Value = persona.Cargos;
+            dataGridView1.Rows[fila].Cells[6].Value = persona.FechaIngreso;
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -129,8 +146,25 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            EditarForm editar = new EditarForm();
-            editar.Show();
+            if (dataGridView1.CurrentRow != null)
+            {
+                int filaSeleccionada = dataGridView1.CurrentRow.Index;
+
+                string ID = dataGridView1.Rows[filaSeleccionada].Cells[0].Value.ToString();
+                string Nombre = dataGridView1.Rows[filaSeleccionada].Cells[1].Value.ToString();
+                string Celda = dataGridView1.Rows[filaSeleccionada].Cells[2].Value.ToString();
+                string Edad = dataGridView1.Rows[filaSeleccionada].Cells[3].Value.ToString();
+                string DUI = dataGridView1.Rows[filaSeleccionada].Cells[4].Value.ToString();
+                string Cargos = dataGridView1.Rows[filaSeleccionada].Cells[5].Value.ToString();
+                string Ingreso = dataGridView1.Rows[filaSeleccionada].Cells[6].Value.ToString();
+
+                EditarForm editar = new EditarForm(this, ID, Nombre, Celda, Edad, DUI, Cargos, Ingreso, filaSeleccionada);
+                editar.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un reo para editar.", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void Visualizar_Click(object sender, EventArgs e)

@@ -119,9 +119,9 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            EditarForm agregar = new EditarForm();
-            agregar.Show();
-            this.Close();
+            //EditarForm agregar = new EditarForm(this);
+            //agregar.Show();
+            //this.Close();
         }
     }
 }

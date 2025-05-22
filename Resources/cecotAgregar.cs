@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,15 +14,57 @@ namespace CECOT_PROYECT.Resources
         public static int AgregarPersona(Cecot persona)
         {
             int retorna = 0; // Inicialmente 0
+
             try
             {
-                using (SqlConnection conexion = new SqlConnection("Server=CRIS;Database=CECOT_1;Trusted_Connection=true;"))
+               using (SqlConnection conexion = new SqlConnection("Server=CRIS;Database=CECOT_1;Trusted_Connection=true;"))
+               {
+                   string query = @"INSERT INTO REOS (Nombre, Edad, Celda, Dui, Cargos, FechaIngreso) 
+                            VALUES (@Nombre, @Edad, @Celda, @Dui, @Cargos, @FechaIngreso)";
+
+
+
+                   using (SqlCommand cmd = new SqlCommand(query, conexion))
+                   {
+                       cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
+                       cmd.Parameters.AddWithValue("@Edad", persona.Edad);
+                       cmd.Parameters.AddWithValue("@Celda", persona.Celda);
+                       cmd.Parameters.AddWithValue("@Dui", persona.Dui);
+                       cmd.Parameters.AddWithValue("@Cargos", persona.Cargos);
+                       cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
+
+                       conexion.Open();
+                       retorna = cmd.ExecuteNonQuery();
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+
+               MessageBox.Show("Error: " + ex.Message);
+           }
+           return retorna;
+       }
+
+        public static bool ActualizarPersona(Cecot persona)
+        {
+            bool actualizado = false;
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-BPP96GF;Database=CECOT_1;Trusted_Connection=true;"))
                 {
-                    string query = @"INSERT INTO REOS (Nombre, Edad, Celda, Dui, Cargos, FechaIngreso) 
-                             VALUES (@Nombre, @Edad, @Celda, @Dui, @Cargos, @FechaIngreso)";
+                    string query = @"UPDATE REOS 
+                             SET Nombre = @Nombre,
+                                 Edad = @Edad,
+                                 Celda = @Celda,
+                                 Dui = @Dui,
+                                 Cargos = @Cargos,
+                                 FechaIngreso = @FechaIngreso
+                             WHERE ID = @ID";
 
                     using (SqlCommand cmd = new SqlCommand(query, conexion))
                     {
+                        cmd.Parameters.AddWithValue("@ID", persona.Id);
                         cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
                         cmd.Parameters.AddWithValue("@Edad", persona.Edad);
                         cmd.Parameters.AddWithValue("@Celda", persona.Celda);
@@ -30,17 +73,18 @@ namespace CECOT_PROYECT.Resources
                         cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
 
                         conexion.Open();
-                        retorna = cmd.ExecuteNonQuery();
+                        int filaafectado = cmd.ExecuteNonQuery();
+                        actualizado = filaafectado > 0;
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Error: " + ex.Message);
             }
-            return retorna;
+            return actualizado;
         }
+
 
 
         public static List<Cecot> PresentarRegistros()
