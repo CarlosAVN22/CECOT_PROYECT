@@ -14,6 +14,7 @@ namespace CECOT_PROYECT
 {
     public partial class CentroControl : Form
     {
+        List<Cecot> listaOriginal = new List<Cecot>();
         public CentroControl()
         {
             InitializeComponent();
@@ -181,6 +182,40 @@ namespace CECOT_PROYECT
             string fechaIngreso = dataGridView1.Rows[filaSeleccionada].Cells[6].Value.ToString();
             Mostrar irMostar = new Mostrar(this,Id,nombre,edad,celda,dui,cargo,fechaIngreso,filaSeleccionada);
             irMostar.Show();
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un reo para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult confirmacion = MessageBox.Show("¿Estás seguro de eliminar este reo?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                int idReo = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+
+                bool eliminado = cecotAgregar.EliminarRegistro(idReo);
+
+                if (eliminado)
+                {
+                    MessageBox.Show("Reo eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    listaOriginal = cecotAgregar.PresentarRegistros();
+                    dataGridView1.DataSource = listaOriginal;
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void txtbuscar_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

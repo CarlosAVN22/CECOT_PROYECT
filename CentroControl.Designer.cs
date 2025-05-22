@@ -69,6 +69,7 @@
             this.txtbuscar.Name = "txtbuscar";
             this.txtbuscar.Size = new System.Drawing.Size(547, 38);
             this.txtbuscar.TabIndex = 1;
+            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
             // 
             // dataGridView1
             // 
@@ -141,6 +142,7 @@
             this.Eliminar.TabIndex = 4;
             this.Eliminar.Text = "Eliminar";
             this.Eliminar.UseVisualStyleBackColor = false;
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
             this.Eliminar.MouseEnter += new System.EventHandler(this.Eliminar_MouseEnter);
             this.Eliminar.MouseLeave += new System.EventHandler(this.Eliminar_MouseLeave);
             // 

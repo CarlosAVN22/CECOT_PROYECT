@@ -17,6 +17,7 @@ namespace CECOT_PROYECT.Resources
 
             try
             {
+
                using (SqlConnection conexion = new SqlConnection("Server=JOSSELYN\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;"))
                {
                    string query = @"INSERT INTO REOS (Nombre, Edad, Celda, Dui, Cargos, FechaIngreso) 
@@ -51,6 +52,7 @@ namespace CECOT_PROYECT.Resources
             bool actualizado = false;
             try
             {
+
                 using (SqlConnection conexion = new SqlConnection("Server=JOSSELYN\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;"))
                 {
                     string query = @"UPDATE REOS 
@@ -116,6 +118,29 @@ namespace CECOT_PROYECT.Resources
 
 
         }
+
+        public static bool EliminarRegistro(int idReo)
+        {
+            try
+            {
+                using (SqlConnection conexion = conexionBD.ObtenerConexion())
+                {
+                    string query = "DELETE FROM REOS WHERE Id = @idReo";
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@idReo", idReo);
+                        int filasAfectadas = comando.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
+                return false;
+            }
+        }
+
 
     }
 }
