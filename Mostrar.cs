@@ -3,22 +3,52 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace CECOT_PROYECT
 {
+
+    
     public partial class Mostrar : Form
-    {
-        public Mostrar()
-        {
-            InitializeComponent();
+     {
+            private int filaSeleccionada;
+
+            public Mostrar(Form formularioAnterior, string id, string nombre, string edad, string celda, string dui, string cargo,string fechaIngreso, int filaSeleccionada)
+            {
+                InitializeComponent();
+                txtid.Text = id;
+                txtnombre.Text = nombre;
+                txtedad.Text = edad;
+                txtcelda.Text = celda;
+                txtdui.Text = dui;
+                txtcargos.Text = cargo;
+                txtfechaingreso.Text = fechaIngreso;
+
+                this.filaSeleccionada = filaSeleccionada;
+
+                txtid.ReadOnly = true;
+                txtnombre.ReadOnly = true;
+                txtedad.ReadOnly = true;
+                txtcelda.ReadOnly = true;
+                txtcargos.ReadOnly = true;
+                txtfechaingreso.ReadOnly = true;
+
+                txtid.BackColor = Color.Gray;
+                txtnombre.BackColor = Color.Gray;
+                
         }
+        
+
 
         private void Registrar_Load(object sender, EventArgs e)
         {
+            
 
         }
 

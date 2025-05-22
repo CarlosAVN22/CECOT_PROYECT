@@ -12,9 +12,9 @@ using CECOT_PROYECT.Resources;
 
 namespace CECOT_PROYECT
 {
-    public partial class CentroControl : Form
+    public partial class SeccionesCRUD : Form
     {
-        public CentroControl()
+        public SeccionesCRUD()
         {
             InitializeComponent();
         }
@@ -122,8 +122,15 @@ namespace CECOT_PROYECT
 
         private void Regresar_MouseClick(object sender, MouseEventArgs e)
         {
-            MenuOpciones menu= new MenuOpciones();
-            menu.Show();
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void Visualizar_MouseClick(object sender, MouseEventArgs e)
+        {
+            Mostrar recluso = new Mostrar();
+            recluso.Show();
             this.Hide();
         }
 
@@ -135,17 +142,7 @@ namespace CECOT_PROYECT
 
         private void Visualizar_Click(object sender, EventArgs e)
         {
-
-            int filaSeleccionada= dataGridView1.CurrentRow.Index;
-
-            string Id = dataGridView1.Rows[filaSeleccionada].Cells[0].Value.ToString();
-            string nombre = dataGridView1.Rows[filaSeleccionada].Cells[1].Value.ToString();
-            string  edad= dataGridView1.Rows[filaSeleccionada].Cells[2].Value.ToString();
-            string celda = dataGridView1.Rows[filaSeleccionada].Cells[3].Value.ToString();
-            string dui = dataGridView1.Rows[filaSeleccionada].Cells[4].Value.ToString();
-            string cargo = dataGridView1.Rows[filaSeleccionada].Cells[5].Value.ToString();
-            string fechaIngreso = dataGridView1.Rows[filaSeleccionada].Cells[6].Value.ToString();
-            Mostrar irMostar = new Mostrar(this,Id,nombre,edad,celda,dui,cargo,fechaIngreso,filaSeleccionada);
+            Mostrar irMostar = new Mostrar();
             irMostar.Show();
         }
     }

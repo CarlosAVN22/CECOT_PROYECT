@@ -49,5 +49,12 @@ namespace CECOT_PROYECT
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btnReos_Click(object sender, EventArgs e)
+        {
+            CentroControl reosCRUD = new CentroControl();
+            reosCRUD.Show();
+            this.Hide();
+        }
     }
 }

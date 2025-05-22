@@ -60,10 +60,11 @@
             this.btnTrabajadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrabajadores.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
             this.btnTrabajadores.ForeColor = System.Drawing.Color.Black;
-            this.btnTrabajadores.Location = new System.Drawing.Point(192, 272);
+            this.btnTrabajadores.Location = new System.Drawing.Point(171, 218);
+            this.btnTrabajadores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTrabajadores.Name = "btnTrabajadores";
-            this.btnTrabajadores.Padding = new System.Windows.Forms.Padding(3);
-            this.btnTrabajadores.Size = new System.Drawing.Size(172, 58);
+            this.btnTrabajadores.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTrabajadores.Size = new System.Drawing.Size(153, 46);
             this.btnTrabajadores.TabIndex = 3;
             this.btnTrabajadores.Text = "TRABAJADORES";
             this.btnTrabajadores.UseVisualStyleBackColor = false;
@@ -76,9 +77,10 @@
             this.btnCeldas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCeldas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
             this.btnCeldas.ForeColor = System.Drawing.Color.Black;
-            this.btnCeldas.Location = new System.Drawing.Point(192, 551);
+            this.btnCeldas.Location = new System.Drawing.Point(171, 441);
+            this.btnCeldas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCeldas.Name = "btnCeldas";
-            this.btnCeldas.Size = new System.Drawing.Size(172, 58);
+            this.btnCeldas.Size = new System.Drawing.Size(153, 46);
             this.btnCeldas.TabIndex = 5;
             this.btnCeldas.Text = "CELDAS";
             this.btnCeldas.UseVisualStyleBackColor = false;
@@ -91,7 +93,8 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(481, 539);
+            this.button5.Location = new System.Drawing.Point(428, 431);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(0, 0);
             this.button5.TabIndex = 7;
@@ -103,9 +106,10 @@
             this.picReos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picReos.BackColor = System.Drawing.Color.Transparent;
             this.picReos.Image = global::CECOT_PROYECT.Properties.Resources.ojo;
-            this.picReos.Location = new System.Drawing.Point(575, 432);
+            this.picReos.Location = new System.Drawing.Point(511, 346);
+            this.picReos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picReos.Name = "picReos";
-            this.picReos.Size = new System.Drawing.Size(109, 101);
+            this.picReos.Size = new System.Drawing.Size(97, 81);
             this.picReos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picReos.TabIndex = 8;
             this.picReos.TabStop = false;
@@ -114,9 +118,10 @@
             // 
             this.picTrabajadores.BackColor = System.Drawing.Color.Transparent;
             this.picTrabajadores.Image = global::CECOT_PROYECT.Properties.Resources.usuarios_alt;
-            this.picTrabajadores.Location = new System.Drawing.Point(226, 150);
+            this.picTrabajadores.Location = new System.Drawing.Point(201, 120);
+            this.picTrabajadores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picTrabajadores.Name = "picTrabajadores";
-            this.picTrabajadores.Size = new System.Drawing.Size(109, 101);
+            this.picTrabajadores.Size = new System.Drawing.Size(97, 81);
             this.picTrabajadores.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picTrabajadores.TabIndex = 9;
             this.picTrabajadores.TabStop = false;
@@ -126,9 +131,10 @@
             this.picAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picAdmin.BackColor = System.Drawing.Color.Transparent;
             this.picAdmin.Image = global::CECOT_PROYECT.Properties.Resources.llave__1_;
-            this.picAdmin.Location = new System.Drawing.Point(925, 150);
+            this.picAdmin.Location = new System.Drawing.Point(822, 120);
+            this.picAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picAdmin.Name = "picAdmin";
-            this.picAdmin.Size = new System.Drawing.Size(109, 101);
+            this.picAdmin.Size = new System.Drawing.Size(97, 81);
             this.picAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAdmin.TabIndex = 10;
             this.picAdmin.TabStop = false;
@@ -137,9 +143,10 @@
             // 
             this.picCeldas.BackColor = System.Drawing.Color.Transparent;
             this.picCeldas.Image = global::CECOT_PROYECT.Properties.Resources.base_de_datos;
-            this.picCeldas.Location = new System.Drawing.Point(226, 432);
+            this.picCeldas.Location = new System.Drawing.Point(201, 346);
+            this.picCeldas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picCeldas.Name = "picCeldas";
-            this.picCeldas.Size = new System.Drawing.Size(109, 101);
+            this.picCeldas.Size = new System.Drawing.Size(97, 81);
             this.picCeldas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picCeldas.TabIndex = 11;
             this.picCeldas.TabStop = false;
@@ -149,9 +156,10 @@
             this.picSecciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picSecciones.BackColor = System.Drawing.Color.Transparent;
             this.picSecciones.Image = global::CECOT_PROYECT.Properties.Resources.lista_del_portapapeles;
-            this.picSecciones.Location = new System.Drawing.Point(925, 432);
+            this.picSecciones.Location = new System.Drawing.Point(822, 346);
+            this.picSecciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picSecciones.Name = "picSecciones";
-            this.picSecciones.Size = new System.Drawing.Size(109, 101);
+            this.picSecciones.Size = new System.Drawing.Size(97, 81);
             this.picSecciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSecciones.TabIndex = 12;
             this.picSecciones.TabStop = false;
@@ -161,9 +169,10 @@
             this.picLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picLogo.BackColor = System.Drawing.Color.Transparent;
             this.picLogo.Image = global::CECOT_PROYECT.Properties.Resources.CECOT_Logo_removebg_preview;
-            this.picLogo.Location = new System.Drawing.Point(523, 68);
+            this.picLogo.Location = new System.Drawing.Point(465, 54);
+            this.picLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(202, 199);
+            this.picLogo.Size = new System.Drawing.Size(180, 159);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 13;
             this.picLogo.TabStop = false;
@@ -175,10 +184,9 @@
             this.btnvolver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.btnvolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnvolver.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnvolver.Location = new System.Drawing.Point(33, 13);
-            this.btnvolver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnvolver.Location = new System.Drawing.Point(29, 10);
             this.btnvolver.Name = "btnvolver";
-            this.btnvolver.Size = new System.Drawing.Size(113, 42);
+            this.btnvolver.Size = new System.Drawing.Size(100, 34);
             this.btnvolver.TabIndex = 14;
             this.btnvolver.Text = "VOLVER";
             this.btnvolver.UseVisualStyleBackColor = true;
@@ -193,12 +201,14 @@
             this.btnReos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReos.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
             this.btnReos.ForeColor = System.Drawing.Color.Black;
-            this.btnReos.Location = new System.Drawing.Point(540, 551);
+            this.btnReos.Location = new System.Drawing.Point(480, 441);
+            this.btnReos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReos.Name = "btnReos";
-            this.btnReos.Size = new System.Drawing.Size(172, 58);
+            this.btnReos.Size = new System.Drawing.Size(153, 46);
             this.btnReos.TabIndex = 15;
             this.btnReos.Text = "REOS";
             this.btnReos.UseVisualStyleBackColor = false;
+            this.btnReos.Click += new System.EventHandler(this.btnReos_Click);
             // 
             // btnSecciones
             // 
@@ -209,9 +219,10 @@
             this.btnSecciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSecciones.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
             this.btnSecciones.ForeColor = System.Drawing.Color.Black;
-            this.btnSecciones.Location = new System.Drawing.Point(894, 551);
+            this.btnSecciones.Location = new System.Drawing.Point(795, 441);
+            this.btnSecciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSecciones.Name = "btnSecciones";
-            this.btnSecciones.Size = new System.Drawing.Size(172, 58);
+            this.btnSecciones.Size = new System.Drawing.Size(153, 46);
             this.btnSecciones.TabIndex = 16;
             this.btnSecciones.Text = "SECCIONES";
             this.btnSecciones.UseVisualStyleBackColor = false;
@@ -225,9 +236,10 @@
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
             this.btnAdmin.ForeColor = System.Drawing.Color.Black;
-            this.btnAdmin.Location = new System.Drawing.Point(858, 273);
+            this.btnAdmin.Location = new System.Drawing.Point(763, 218);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(208, 57);
+            this.btnAdmin.Size = new System.Drawing.Size(185, 46);
             this.btnAdmin.TabIndex = 17;
             this.btnAdmin.Text = "ADMINISTRADORES";
             this.btnAdmin.UseVisualStyleBackColor = false;
@@ -241,9 +253,10 @@
             this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncerrar.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncerrar.ForeColor = System.Drawing.Color.White;
-            this.btncerrar.Location = new System.Drawing.Point(1153, 4);
+            this.btncerrar.Location = new System.Drawing.Point(1025, 3);
+            this.btncerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(46, 48);
+            this.btncerrar.Size = new System.Drawing.Size(41, 38);
             this.btncerrar.TabIndex = 18;
             this.btncerrar.Text = "O";
             this.btncerrar.UseVisualStyleBackColor = false;
@@ -258,9 +271,10 @@
             this.btnmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmax.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmax.ForeColor = System.Drawing.Color.White;
-            this.btnmax.Location = new System.Drawing.Point(1101, 4);
+            this.btnmax.Location = new System.Drawing.Point(979, 3);
+            this.btnmax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnmax.Name = "btnmax";
-            this.btnmax.Size = new System.Drawing.Size(46, 48);
+            this.btnmax.Size = new System.Drawing.Size(41, 38);
             this.btnmax.TabIndex = 19;
             this.btnmax.Text = "O";
             this.btnmax.UseVisualStyleBackColor = false;
@@ -275,9 +289,10 @@
             this.btnmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmin.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmin.ForeColor = System.Drawing.Color.White;
-            this.btnmin.Location = new System.Drawing.Point(1049, 4);
+            this.btnmin.Location = new System.Drawing.Point(932, 3);
+            this.btnmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnmin.Name = "btnmin";
-            this.btnmin.Size = new System.Drawing.Size(46, 48);
+            this.btnmin.Size = new System.Drawing.Size(41, 38);
             this.btnmin.TabIndex = 20;
             this.btnmin.Text = "O";
             this.btnmin.UseVisualStyleBackColor = false;
@@ -285,11 +300,11 @@
             // 
             // MenuOpciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1200, 706);
+            this.ClientSize = new System.Drawing.Size(1067, 565);
             this.Controls.Add(this.btnTrabajadores);
             this.Controls.Add(this.picTrabajadores);
             this.Controls.Add(this.btnmin);
@@ -307,6 +322,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnCeldas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MenuOpciones";
             this.Text = "MenuOpciones";
             this.Load += new System.EventHandler(this.MenuOpciones_Load);

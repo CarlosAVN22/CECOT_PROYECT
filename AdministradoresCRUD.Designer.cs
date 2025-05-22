@@ -1,6 +1,6 @@
 ﻿namespace CECOT_PROYECT
 {
-    partial class CentroControl
+    partial class AdministradoresCRUD
     {
         /// <summary>
         /// Required designer variable.
@@ -72,6 +72,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -159,6 +160,7 @@
             this.Visualizar.Text = "Visualizar";
             this.Visualizar.UseVisualStyleBackColor = false;
             this.Visualizar.Click += new System.EventHandler(this.Visualizar_Click);
+            this.Visualizar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseClick);
             this.Visualizar.MouseEnter += new System.EventHandler(this.Visualizar_MouseEnter);
             this.Visualizar.MouseLeave += new System.EventHandler(this.Visualizar_MouseLeave);
             // 
@@ -256,7 +258,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "f";
+            this.Text = "Buscar";
             this.Load += new System.EventHandler(this.Buscar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

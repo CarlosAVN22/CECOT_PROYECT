@@ -88,7 +88,7 @@
             // 
             this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnombre.Location = new System.Drawing.Point(320, 69);
-            this.txtnombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtnombre.Margin = new System.Windows.Forms.Padding(8, 2, 8, 2);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(293, 30);
             this.txtnombre.TabIndex = 5;
