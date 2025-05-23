@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CECOT_PROYECT.Resources;
+using CECOT_PROYECT.SeccionesForms;
 
 namespace CECOT_PROYECT
 {
@@ -36,7 +37,7 @@ namespace CECOT_PROYECT
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            AgregarForm agregar = new AgregarForm();
+            AgregarSeccion agregar = new AgregarSeccion();
             agregar.Show();
         }
 

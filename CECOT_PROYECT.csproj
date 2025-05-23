@@ -100,6 +100,12 @@
     <Compile Include="Resources\Cecot.cs" />
     <Compile Include="ReosForms\cecotAgregar.cs" />
     <Compile Include="Resources\conexionBD.cs" />
+    <Compile Include="SeccionesForms\AgregarSeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeccionesForms\AgregarSeccion.Designer.cs">
+      <DependentUpon>AgregarSeccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeccionesForms\SeccionesCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SeccionesForms\AgregarSeccion.resx">
+      <DependentUpon>AgregarSeccion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SeccionesForms\SeccionesCRUD.resx">
       <DependentUpon>SeccionesCRUD.cs</DependentUpon>
     </EmbeddedResource>
