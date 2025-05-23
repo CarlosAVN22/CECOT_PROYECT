@@ -13,7 +13,11 @@ namespace CECOT_PROYECT.Resources
         public static SqlConnection ObtenerConexion()
         {
 
+<<<<<<< Updated upstream
             SqlConnection connectionString = new SqlConnection("Server=DESKTOP-42P3LD3\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;");
+=======
+            SqlConnection connectionString = new SqlConnection("Server=DESKTOP-BPP96GF;Database=CECOT_1;Trusted_Connection=true;");
+>>>>>>> Stashed changes
            connectionString.Open();
             return connectionString;
 

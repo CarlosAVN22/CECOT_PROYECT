@@ -18,7 +18,11 @@ namespace CECOT_PROYECT.Resources
             try
             {
 
+<<<<<<< Updated upstream
                using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-42P3LD3\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;"))
+=======
+               using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-BPP96GF;Database=CECOT_1;Trusted_Connection=true;"))
+>>>>>>> Stashed changes
                {
                    string query = @"INSERT INTO REOS (Nombre, Edad, Celda, Dui, Cargos, FechaIngreso) 
                             VALUES (@Nombre, @Edad, @Celda, @Dui, @Cargos, @FechaIngreso)";
@@ -53,7 +57,11 @@ namespace CECOT_PROYECT.Resources
             try
             {
 
+<<<<<<< Updated upstream
                 using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-42P3LD3\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;"))
+=======
+                using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-BPP96GF;Database=CECOT_1;Trusted_Connection=true;"))
+>>>>>>> Stashed changes
                 {
                     string query = @"UPDATE REOS 
                              SET Nombre = @Nombre,
