@@ -22,7 +22,8 @@ namespace CECOT_PROYECT
 
         private void Buscar_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = cecotAgregar.PresentarRegistros();
+            listaOriginal = cecotAgregar.PresentarRegistros(); 
+            dataGridView1.DataSource = listaOriginal;
         }
 
         public void AgregarFila(string ID, string Nombre, string Celda, string Edad, string DUI, string Cargos, string Ingreso)
@@ -215,7 +216,25 @@ namespace CECOT_PROYECT
 
         private void txtbuscar_TextChanged(object sender, EventArgs e)
         {
-            
+            string textoBusqueda = txtbuscar.Text.ToLower();
+
+            if (string.IsNullOrWhiteSpace(textoBusqueda))
+            {
+                dataGridView1.DataSource = listaOriginal;
+                return;
+            }
+
+            var resultados = listaOriginal.Where(c =>
+                c.Id.ToString().Contains(textoBusqueda) ||   
+                (c.Nombre != null && c.Nombre.ToLower().Contains(textoBusqueda)) ||
+                (c.Celda != null && c.Celda.ToLower().Contains(textoBusqueda)) ||
+                (c.Edad != null && c.Edad.ToLower().Contains(textoBusqueda)) ||
+                (c.Dui != null && c.Dui.ToLower().Contains(textoBusqueda)) ||
+                (c.Cargos != null && c.Cargos.ToLower().Contains(textoBusqueda)) ||
+                (c.FechaIngreso != null && c.FechaIngreso.ToLower().Contains(textoBusqueda))
+            ).ToList();
+
+            dataGridView1.DataSource = resultados;
         }
     }
 }

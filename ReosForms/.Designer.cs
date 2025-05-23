@@ -135,7 +135,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(284, 155);
+            this.label7.Location = new System.Drawing.Point(266, 155);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 25);
             this.label7.TabIndex = 9;
