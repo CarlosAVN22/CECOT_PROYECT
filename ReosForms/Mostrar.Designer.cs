@@ -1,4 +1,6 @@
-﻿namespace CECOT_PROYECT
+﻿using System;
+
+namespace CECOT_PROYECT
 {
     partial class Mostrar
     {
@@ -170,8 +172,7 @@
             this.btnEliminar.TabIndex = 11;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.MouseEnter += new System.EventHandler(this.btnEliminar_MouseEnter);
-            this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminar_MouseLeave);
+            
             // 
             // txtcelda
             // 
@@ -253,9 +254,6 @@
             this.Editar.TabIndex = 18;
             this.Editar.Text = "Editar";
             this.Editar.UseVisualStyleBackColor = true;
-            this.Editar.Click += new System.EventHandler(this.Editar_Click);
-            this.Editar.MouseEnter += new System.EventHandler(this.Editar_MouseEnter);
-            this.Editar.MouseLeave += new System.EventHandler(this.Editar_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -276,7 +274,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(180, 153);
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Mostrar
             // 
@@ -308,12 +305,16 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Mostrar";
             this.Text = "Registrar";
-            this.Load += new System.EventHandler(this.Registrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

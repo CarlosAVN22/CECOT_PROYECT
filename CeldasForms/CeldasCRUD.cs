@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CECOT_PROYECT.CeldasForms;
 using CECOT_PROYECT.Resources;
+using CECOT_PROYECT.SeccionesForms;
 
 namespace CECOT_PROYECT
 {
@@ -21,7 +22,7 @@ namespace CECOT_PROYECT
 
         private void Buscar_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = cecotAgregar.PresentarRegistros();
+            dataGridView1.DataSource = FuncionesSQLCeldas.PresentarRegistros();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -36,7 +37,8 @@ namespace CECOT_PROYECT
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-  
+            AgregarCelda agregarCelda = new AgregarCelda();
+            agregarCelda.Show();
         }
 
         private void Agregar_MouseEnter(object sender, EventArgs e)

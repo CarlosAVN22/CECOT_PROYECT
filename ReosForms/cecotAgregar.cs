@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CECOT_PROYECT.Resources
@@ -13,89 +9,96 @@ namespace CECOT_PROYECT.Resources
     {
         public static int AgregarPersona(Cecot persona)
         {
-            int retorna = 0; // Inicialmente 0
-
+            int retorna = 0;
             try
             {
+                using (SqlConnection conexion = conexionBD.ObtenerConexion())
+                {
+                    // Validar si la celda existe antes de insertar
+                    if (!ExisteCelda(persona.IdCelda, conexion))
+                    {
+                        MessageBox.Show("La celda con el ID " + persona.IdCelda + " no existe. Inserta una celda válida.");
+                        return 0;
+                    }
 
-<<<<<<< Updated upstream
-               using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-42P3LD3\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;"))
-=======
-               using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-BPP96GF;Database=CECOT_1;Trusted_Connection=true;"))
->>>>>>> Stashed changes
-               {
-                   string query = @"INSERT INTO REOS (Nombre, Edad, Celda, Dui, Cargos, FechaIngreso) 
-                            VALUES (@Nombre, @Edad, @Celda, @Dui, @Cargos, @FechaIngreso)";
+                    string query = @"
+                        INSERT INTO Reos 
+                        (Nombre, Edad, DUI, FechaIngreso, IdCelda) 
+                        VALUES 
+                        (@Nombre, @Edad, @DUI, @FechaIngreso, @IdCelda)";
 
+                    using (SqlCommand cmd = new SqlCommand(query, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
+                        cmd.Parameters.AddWithValue("@Edad", persona.Edad);
+                        cmd.Parameters.AddWithValue("@DUI", persona.DUI);
+                        cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
+                        cmd.Parameters.AddWithValue("@IdCelda", persona.IdCelda);
 
+                        retorna = cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar: " + ex.Message);
+            }
+            return retorna;
+        }
 
-                   using (SqlCommand cmd = new SqlCommand(query, conexion))
-                   {
-                       cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
-                       cmd.Parameters.AddWithValue("@Edad", persona.Edad);
-                       cmd.Parameters.AddWithValue("@Celda", persona.Celda);
-                       cmd.Parameters.AddWithValue("@Dui", persona.Dui);
-                       cmd.Parameters.AddWithValue("@Cargos", persona.Cargos);
-                       cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
-
-                       conexion.Open();
-                       retorna = cmd.ExecuteNonQuery();
-                   }
-               }
-           }
-           catch (Exception ex)
-           {
-
-               MessageBox.Show("Error: " + ex.Message);
-           }
-           return retorna;
-       }
+        // Método para verificar si existe el IdCelda
+        private static bool ExisteCelda(int idCelda, SqlConnection conexion)
+        {
+            string query = "SELECT COUNT(*) FROM Celdas WHERE Id = @IdCelda";
+            using (SqlCommand cmd = new SqlCommand(query, conexion))
+            {
+                cmd.Parameters.AddWithValue("@IdCelda", idCelda);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
 
         public static bool ActualizarPersona(Cecot persona)
         {
             bool actualizado = false;
             try
             {
-
-<<<<<<< Updated upstream
-                using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-42P3LD3\\SQLEXPRESS;Database=CECOT_1;Trusted_Connection=true;"))
-=======
-                using (SqlConnection conexion = new SqlConnection("Server=DESKTOP-BPP96GF;Database=CECOT_1;Trusted_Connection=true;"))
->>>>>>> Stashed changes
+                using (SqlConnection conexion = conexionBD.ObtenerConexion())
                 {
-                    string query = @"UPDATE REOS 
-                             SET Nombre = @Nombre,
-                                 Edad = @Edad,
-                                 Celda = @Celda,
-                                 Dui = @Dui,
-                                 Cargos = @Cargos,
-                                 FechaIngreso = @FechaIngreso
-                             WHERE ID = @ID";
+                    if (!ExisteCelda(persona.IdCelda, conexion))
+                    {
+                        MessageBox.Show("La celda con el ID " + persona.IdCelda + " no existe. No se puede actualizar.");
+                        return false;
+                    }
+
+                    string query = @"
+                        UPDATE Reos 
+                        SET Nombre = @Nombre,
+                            Edad = @Edad,
+                            DUI = @DUI,
+                            FechaIngreso = @FechaIngreso,
+                            IdCelda = @IdCelda
+                        WHERE Id = @Id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@ID", persona.Id);
+                        cmd.Parameters.AddWithValue("@Id", persona.Id);
                         cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
                         cmd.Parameters.AddWithValue("@Edad", persona.Edad);
-                        cmd.Parameters.AddWithValue("@Celda", persona.Celda);
-                        cmd.Parameters.AddWithValue("@Dui", persona.Dui);
-                        cmd.Parameters.AddWithValue("@Cargos", persona.Cargos);
+                        cmd.Parameters.AddWithValue("@DUI", persona.DUI);
                         cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
+                        cmd.Parameters.AddWithValue("@IdCelda", persona.IdCelda);
 
-                        conexion.Open();
-                        int filaafectado = cmd.ExecuteNonQuery();
-                        actualizado = filaafectado > 0;
+                        actualizado = cmd.ExecuteNonQuery() > 0;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error al actualizar: " + ex.Message);
             }
             return actualizado;
         }
-
-
 
         public static List<Cecot> PresentarRegistros()
         {
@@ -103,28 +106,36 @@ namespace CECOT_PROYECT.Resources
 
             using (SqlConnection conexion = conexionBD.ObtenerConexion())
             {
-                string query = "SELECT * FROM REOS";
+                string query = @"
+                    SELECT 
+                        R.Id, R.Nombre, R.Edad, R.DUI, 
+                        R.FechaIngreso, C.Id AS IdCelda, 
+                        S.Nombre AS NombreSeccion, S.Tipo AS TipoSeccion
+                    FROM Reos R
+                    INNER JOIN Celdas C ON R.IdCelda = C.Id
+                    INNER JOIN Secciones S ON C.IdSeccion = S.Id";
+
                 SqlCommand comando = new SqlCommand(query, conexion);
                 SqlDataReader reader = comando.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    Cecot persona = new Cecot();
-                    persona.Id = reader.GetInt32(0);
-                    persona.Nombre = reader.GetString(1);
-                    persona.Edad = reader.GetString(2);
-                    persona.Celda = reader.GetString(3);
-                    persona.Dui = reader.GetString(4);
-                    persona.Cargos = reader.GetString(5);
-                    persona.FechaIngreso = reader.GetString(6);
-                    lista.Add(persona);
-                }
+                    Cecot reo = new Cecot
+                    {
+                        Id = reader.GetInt32(0),
+                        Nombre = reader.GetString(1),
+                        Edad = reader.GetInt32(2).ToString(),
+                        DUI = reader.GetString(3),
+                        FechaIngreso = reader.GetDateTime(4).ToShortDateString(),
+                        IdCelda = reader.GetInt32(5),
+                    };
 
+                    lista.Add(reo);
+                }
                 conexion.Close();
-                return lista;
             }
 
-
+            return lista;
         }
 
         public static bool EliminarRegistro(int idReo)
@@ -133,12 +144,11 @@ namespace CECOT_PROYECT.Resources
             {
                 using (SqlConnection conexion = conexionBD.ObtenerConexion())
                 {
-                    string query = "DELETE FROM REOS WHERE Id = @idReo";
+                    string query = "DELETE FROM Reos WHERE Id = @Id";
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
-                        comando.Parameters.AddWithValue("@idReo", idReo);
-                        int filasAfectadas = comando.ExecuteNonQuery();
-                        return filasAfectadas > 0;
+                        comando.Parameters.AddWithValue("@Id", idReo);
+                        return comando.ExecuteNonQuery() > 0;
                     }
                 }
             }
@@ -148,7 +158,5 @@ namespace CECOT_PROYECT.Resources
                 return false;
             }
         }
-
-
     }
 }

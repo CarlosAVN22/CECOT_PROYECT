@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace CECOT_PROYECT.CeldasForms
 {
-    public partial class AgregarCeldascs : Form
+    public partial class AgregarCelda : Form
     {
 
-        string connectionString = @"Server=DESKTOP-42P3LD3\SQLEXPRESS;Database=ProyectoCarcelario;Trusted_Connection=True;";
-        public AgregarCeldascs()
+        string connectionString = @"Server=CRIS;Database=ProyectoCarcelario;Trusted_Connection=True;";
+        public AgregarCelda()
         {
 
             InitializeComponent();
@@ -65,17 +65,25 @@ namespace CECOT_PROYECT.CeldasForms
             {
                 conn.Open();
 
-                string query = "SELECT Id, Nombre FROM Secciones";
-
+                string query = "SELECT Id, Nombre, Tipo FROM Secciones";
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+                // Crear una nueva columna para mostrar Nombre + Tipo
+                dt.Columns.Add("Descripcion", typeof(string));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    row["Descripcion"] = $"{row["Nombre"]} - {row["Tipo"]}";
+                }
+
                 cmbCelda.DataSource = dt;
-                cmbCelda.DisplayMember = "Nombre";  // Lo que se muestra en la lista
-                cmbCelda.ValueMember = "Id";        // El valor interno que usarás
+                cmbCelda.DisplayMember = "Descripcion";  // Mostrará "Bloque A - Máxima Seguridad"
+                cmbCelda.ValueMember = "Id";             // El valor que usarás internamente
             }
         }
+
 
         private void AgregarCeldascs_Load(object sender, EventArgs e)
         {

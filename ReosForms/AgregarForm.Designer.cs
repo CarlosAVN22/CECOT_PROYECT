@@ -38,13 +38,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
-            this.txtcelda = new System.Windows.Forms.TextBox();
             this.txtcargos = new System.Windows.Forms.TextBox();
             this.txtdui = new System.Windows.Forms.TextBox();
             this.txtedad = new System.Windows.Forms.TextBox();
-            this.txtfechaIngreso = new System.Windows.Forms.TextBox();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cmbCelda = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,15 +161,6 @@
             this.txtnombre.Size = new System.Drawing.Size(293, 30);
             this.txtnombre.TabIndex = 29;
             // 
-            // txtcelda
-            // 
-            this.txtcelda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelda.Location = new System.Drawing.Point(178, 200);
-            this.txtcelda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtcelda.Name = "txtcelda";
-            this.txtcelda.Size = new System.Drawing.Size(293, 30);
-            this.txtcelda.TabIndex = 30;
-            // 
             // txtcargos
             // 
             this.txtcargos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,6 +178,7 @@
             this.txtdui.Name = "txtdui";
             this.txtdui.Size = new System.Drawing.Size(293, 30);
             this.txtdui.TabIndex = 32;
+            this.txtdui.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdui_KeyPress);
             // 
             // txtedad
             // 
@@ -196,15 +188,7 @@
             this.txtedad.Name = "txtedad";
             this.txtedad.Size = new System.Drawing.Size(293, 30);
             this.txtedad.TabIndex = 33;
-            // 
-            // txtfechaIngreso
-            // 
-            this.txtfechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfechaIngreso.Location = new System.Drawing.Point(178, 360);
-            this.txtfechaIngreso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtfechaIngreso.Name = "txtfechaIngreso";
-            this.txtfechaIngreso.Size = new System.Drawing.Size(293, 30);
-            this.txtfechaIngreso.TabIndex = 34;
+            this.txtedad.Leave += new System.EventHandler(this.txtedad_Leave);
             // 
             // btn_guardar
             // 
@@ -212,7 +196,7 @@
             this.btn_guardar.FlatAppearance.BorderSize = 3;
             this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.Location = new System.Drawing.Point(116, 400);
+            this.btn_guardar.Location = new System.Drawing.Point(64, 400);
             this.btn_guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(133, 40);
@@ -236,19 +220,35 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // Formulario
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(178, 360);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(293, 22);
+            this.dateTimePicker1.TabIndex = 37;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // cmbCelda
+            // 
+            this.cmbCelda.FormattingEnabled = true;
+            this.cmbCelda.Location = new System.Drawing.Point(178, 200);
+            this.cmbCelda.Name = "cmbCelda";
+            this.cmbCelda.Size = new System.Drawing.Size(293, 24);
+            this.cmbCelda.TabIndex = 39;
+            // 
+            // AgregarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
             this.ClientSize = new System.Drawing.Size(558, 458);
+            this.Controls.Add(this.cmbCelda);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.txtfechaIngreso);
             this.Controls.Add(this.txtedad);
             this.Controls.Add(this.txtdui);
             this.Controls.Add(this.txtcargos);
-            this.Controls.Add(this.txtcelda);
             this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label8);
@@ -259,9 +259,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Formulario";
+            this.Name = "AgregarForm";
             this.Text = "Formulario";
-            this.Load += new System.EventHandler(this.Formulario_Load);
+            this.Load += new System.EventHandler(this.AgregarForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -280,12 +280,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.TextBox txtnombre;
-        private System.Windows.Forms.TextBox txtcelda;
         private System.Windows.Forms.TextBox txtcargos;
         private System.Windows.Forms.TextBox txtdui;
         private System.Windows.Forms.TextBox txtedad;
-        private System.Windows.Forms.TextBox txtfechaIngreso;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cmbCelda;
     }
 }

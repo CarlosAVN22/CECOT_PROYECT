@@ -10,7 +10,7 @@ namespace CECOT_PROYECT.CeldasForms
     internal class BotonosCeldas
     {
 
-        string connectionString = @"Server=DESKTOP-42P3LD3\SQLEXPRESS;Database=ProyectoCarcelario;Trusted_Connection=True;";
+        string connectionString = @"Server=CRIS;Database=ProyectoCarcelario;Trusted_Connection=True;";
         public bool CrearCelda(int idSeccion, int capacidadReos)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))

@@ -1,6 +1,6 @@
 ﻿namespace CECOT_PROYECT.CeldasForms
 {
-    partial class AgregarCeldascs
+    partial class AgregarCelda
     {
         /// <summary>
         /// Required designer variable.
@@ -47,10 +47,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.CECOT_Logo_removebg_preview;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(283, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(252, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 132);
+            this.pictureBox1.Size = new System.Drawing.Size(130, 106);
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
@@ -60,9 +59,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(71, 155);
+            this.label2.Location = new System.Drawing.Point(63, 124);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 25);
+            this.label2.Size = new System.Drawing.Size(26, 19);
             this.label2.TabIndex = 22;
             this.label2.Text = "ID";
             // 
@@ -72,9 +71,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(71, 212);
+            this.label1.Location = new System.Drawing.Point(63, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 25);
+            this.label1.Size = new System.Drawing.Size(137, 19);
             this.label1.TabIndex = 23;
             this.label1.Text = "Tipo de celda  :";
             // 
@@ -84,9 +83,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(71, 281);
+            this.label4.Location = new System.Drawing.Point(63, 225);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 25);
+            this.label4.Size = new System.Drawing.Size(113, 19);
             this.label4.TabIndex = 25;
             this.label4.Text = "Capacidad :";
             // 
@@ -96,19 +95,19 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(71, 395);
+            this.label5.Location = new System.Drawing.Point(63, 316);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 25);
+            this.label5.Size = new System.Drawing.Size(0, 19);
             this.label5.TabIndex = 26;
             // 
             // txtceldaid
             // 
             this.txtceldaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtceldaid.Location = new System.Drawing.Point(121, 145);
+            this.txtceldaid.Location = new System.Drawing.Point(108, 116);
             this.txtceldaid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtceldaid.Name = "txtceldaid";
             this.txtceldaid.ReadOnly = true;
-            this.txtceldaid.Size = new System.Drawing.Size(60, 35);
+            this.txtceldaid.Size = new System.Drawing.Size(54, 30);
             this.txtceldaid.TabIndex = 35;
             // 
             // cmbCelda
@@ -119,9 +118,10 @@
             "Maxima seguridad",
             "Comunes",
             "Aislamiento"});
-            this.cmbCelda.Location = new System.Drawing.Point(252, 209);
+            this.cmbCelda.Location = new System.Drawing.Point(224, 167);
+            this.cmbCelda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbCelda.Name = "cmbCelda";
-            this.cmbCelda.Size = new System.Drawing.Size(134, 33);
+            this.cmbCelda.Size = new System.Drawing.Size(299, 28);
             this.cmbCelda.TabIndex = 36;
             this.cmbCelda.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -132,10 +132,10 @@
             this.btn_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.Location = new System.Drawing.Point(121, 354);
+            this.btn_guardar.Location = new System.Drawing.Point(108, 283);
             this.btn_guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(150, 50);
+            this.btn_guardar.Size = new System.Drawing.Size(133, 40);
             this.btn_guardar.TabIndex = 37;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
@@ -148,10 +148,10 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(377, 354);
+            this.button1.Location = new System.Drawing.Point(335, 283);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 50);
+            this.button1.Size = new System.Drawing.Size(133, 40);
             this.button1.TabIndex = 38;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
@@ -160,17 +160,18 @@
             // numCapacidadReos
             // 
             this.numCapacidadReos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCapacidadReos.Location = new System.Drawing.Point(242, 275);
+            this.numCapacidadReos.Location = new System.Drawing.Point(215, 220);
+            this.numCapacidadReos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numCapacidadReos.Name = "numCapacidadReos";
-            this.numCapacidadReos.Size = new System.Drawing.Size(165, 35);
+            this.numCapacidadReos.Size = new System.Drawing.Size(125, 30);
             this.numCapacidadReos.TabIndex = 39;
             // 
-            // AgregarCeldascs
+            // AgregarCelda
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
-            this.ClientSize = new System.Drawing.Size(653, 440);
+            this.ClientSize = new System.Drawing.Size(580, 352);
             this.Controls.Add(this.numCapacidadReos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_guardar);
@@ -181,7 +182,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "AgregarCeldascs";
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "AgregarCelda";
             this.Text = "AgregarCeldascs";
             this.Load += new System.EventHandler(this.AgregarCeldascs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -16,6 +16,8 @@ namespace CECOT_PROYECT
         private ReosCRUD CentroControlMain;
         private int Editar = -1;
         private bool Edicion = false;
+        private Cecot reo;
+        private int fila;
 
         public EditarForm(ReosCRUD Main)
         {
@@ -39,6 +41,12 @@ namespace CECOT_PROYECT
             txtfechaingreso.Text = Ingreso;
 
             txtid.Enabled = false;
+        }
+
+        public EditarForm(ReosCRUD Main, Cecot reo, int fila) : this(Main)
+        {
+            this.reo = reo;
+            this.fila = fila;
         }
 
         private void Registrar_Load(object sender, EventArgs e)
@@ -118,9 +126,6 @@ namespace CECOT_PROYECT
                 Id = int.Parse(txtid.Text),
                 Nombre = txtnombre.Text,
                 Edad = txtedad.Text, // o int.Parse(txtEdad.Text) si usas int
-                Celda = txtsentencia.Text,
-                Dui = txtdui.Text,
-                Cargos = txtcargos.Text,
                 FechaIngreso = txtfechaingreso.Text // o dtpFechaIngreso.Value si usas DateTimePicker
             };
 

@@ -1,60 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using CECOT_PROYECT.Resources;
 
 namespace CECOT_PROYECT
 {
-
-    
     public partial class Mostrar : Form
-     {
-            private int filaSeleccionada;
+    {
+        private ReosCRUD reosCRUD;
+        private Cecot reo;
+        private int fila;
 
-            public Mostrar(Form formularioAnterior, string id, string nombre, string edad, string celda, string dui, string cargo,string fechaIngreso, int filaSeleccionada)
+        public Mostrar(
+            Form formularioAnterior,
+            string id,
+            string nombre,
+            string edad,
+            string dui,
+            string sentencia,
+            string delito,
+            string celda,
+            string seccion,
+            string tipoSeccion,
+            string fechaIngreso)
+        {
+            InitializeComponent();
+
+            // Asignar valores a los campos
+            txtid.Text = id;
+            txtnombre.Text = nombre;
+            txtedad.Text = edad;
+            txtdui.Text = dui;
+            txtcelda.Text = celda;
+            txtfechaingreso.Text = fechaIngreso;
+
+            // Hacer los campos solo lectura
+            DesactivarCampos();
+        }
+
+        public Mostrar(ReosCRUD reosCRUD, Cecot reo, int fila)
+        {
+            this.reosCRUD = reosCRUD;
+            this.reo = reo;
+            this.fila = fila;
+        }
+
+        private void DesactivarCampos()
+        {
+            foreach (Control control in this.Controls)
             {
-                InitializeComponent();
-                txtid.Text = id;
-                txtnombre.Text = nombre;
-                txtedad.Text = edad;
-                txtcelda.Text = celda;
-                txtdui.Text = dui;
-                txtcargos.Text = cargo;
-                txtfechaingreso.Text = fechaIngreso;
-
-                this.filaSeleccionada = filaSeleccionada;
-
-                txtid.ReadOnly = true;
-                txtnombre.ReadOnly = true;
-                txtedad.ReadOnly = true;
-                txtcelda.ReadOnly = true;
-                txtcargos.ReadOnly = true;
-                txtfechaingreso.ReadOnly = true;
-
-                txtid.BackColor = Color.Gray;
-                txtnombre.BackColor = Color.Gray;
-                
-        }
-        
-
-
-        private void Registrar_Load(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
+                if (control is TextBox txt)
+                {
+                    txt.ReadOnly = true;
+                    txt.BackColor = Color.LightGray;
+                }
+            }
         }
 
         private void btnregresar_Click(object sender, EventArgs e)
@@ -80,48 +80,12 @@ namespace CECOT_PROYECT
             btnregresar.FlatAppearance.BorderColor = Color.DimGray;
         }
 
-        private void Editar_MouseEnter(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            Editar.Size = new Size(Editar.Width + 5, Editar.Height + 5);
-            Editar.BackColor = Color.DimGray;
-            Editar.ForeColor = Color.White;
-            Editar.FlatAppearance.BorderColor = Color.White;
-        }
-
-        private void Editar_MouseLeave(object sender, EventArgs e)
-        {
-            Editar.Size = new Size(Editar.Width - 5, Editar.Height - 5);
-            Editar.BackColor = Color.White;
-            Editar.ForeColor = Color.Black;
-            Editar.FlatAppearance.BorderColor = Color.DimGray;
-        }
-
-        private void btnEliminar_MouseEnter(object sender, EventArgs e)
-        {
-            btnEliminar.Size = new Size(btnEliminar.Width + 5, btnEliminar.Height + 5);
-            btnEliminar.BackColor = Color.DimGray;
-            btnEliminar.ForeColor = Color.White;
-            btnEliminar.FlatAppearance.BorderColor = Color.White;
-        }
-
-        private void btnEliminar_MouseLeave(object sender, EventArgs e)
-        {
-            btnEliminar.Size = new Size(btnEliminar.Width - 5, btnEliminar.Height - 5);
-            btnEliminar.BackColor = Color.White;
-            btnEliminar.ForeColor = Color.Black;
-            btnEliminar.FlatAppearance.BorderColor = Color.DimGray;
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Editar_Click(object sender, EventArgs e)
-        {
-            //EditarForm agregar = new EditarForm(this);
-            //agregar.Show();
-            //this.Close();
+            // Si deseas abrir EditarForm desde aquí
+            // EditarForm editar = new EditarForm(...);
+            // editar.Show();
+            // this.Close();
         }
     }
 }
