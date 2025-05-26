@@ -59,8 +59,8 @@ namespace CECOT_PROYECT
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            AdministradoresCRUD administradoresCRUD = new AdministradoresCRUD();
-            administradoresCRUD.Show();
+            //AdministradoresCRUD administradoresCRUD = new AdministradoresCRUD();
+            //administradoresCRUD.Show();
             this.Hide();
         }
 

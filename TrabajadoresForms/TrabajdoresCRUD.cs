@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CECOT_PROYECT.Resources;
+using CECOT_PROYECT.TrabajadoresForms;
 
 namespace CECOT_PROYECT
 {
@@ -21,7 +22,7 @@ namespace CECOT_PROYECT
 
         private void Buscar_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = cecotAgregar.PresentarRegistros();
+            dataGridView1.DataSource = TrabajadoresAgregar.PresentarRegistros();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -36,7 +37,9 @@ namespace CECOT_PROYECT
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            
+            TrabajadoresMostrar trabajadoresMostrar = new TrabajadoresMostrar();
+            trabajadoresMostrar.Show();
+            this.Hide();
         }
 
         private void Agregar_MouseEnter(object sender, EventArgs e)
@@ -133,12 +136,107 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-        
+            if (dataGridView1.CurrentRow != null)
+            {
+                string id = dataGridView1.CurrentRow.Cells["TrabajadorID"].Value.ToString();
+                string nombre = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+                string apellido = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
+                string dui = dataGridView1.CurrentRow.Cells["DUI"].Value.ToString();
+                DateTime fechaNacimiento = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["FechaNacimiento"].Value);
+                string genero = dataGridView1.CurrentRow.Cells["Género"].Value.ToString();
+                string telefono = dataGridView1.CurrentRow.Cells["Telefono"].Value.ToString();
+                string email = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
+                DateTime fechaIngreso = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["FechaIngreso"].Value);
+                string cargo = dataGridView1.CurrentRow.Cells["Cargo"].Value.ToString();
+                string departamento = dataGridView1.CurrentRow.Cells["Departamento"].Value.ToString();
+                string rutaimagen = dataGridView1.CurrentRow.Cells["FotoPath"].Value.ToString();
+
+                // Abrir formulario de edición
+                TrabajadoresEditar editarForm = new TrabajadoresEditar(id, nombre, apellido, fechaNacimiento, genero, dui, telefono, email, fechaIngreso, cargo, departamento,rutaimagen);
+                editarForm.ShowDialog();
+
+                // Refrescar la grilla después de editar
+                dataGridView1.DataSource = TrabajadoresAgregar.PresentarRegistros();
+            }
+
+            else
+            {
+                MessageBox.Show("Seleccione un trabajador para editar.", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void Visualizar_Click(object sender, EventArgs e)
         {
-            
+           
+
+            if (dataGridView1.CurrentRow != null)
+            {
+                dataGridView1.DataSource = TrabajadoresAgregar.PresentarRegistros();
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un trabajador para visualizar.");
+            }
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                string dui = dataGridView1.CurrentRow.Cells["DUI"].Value.ToString();
+
+                DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar este trabajador?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    int eliminado = TrabajadoresAgregar.EliminarTrabajador(dui);
+
+                    if (eliminado > 0)
+                    {
+                        MessageBox.Show("Trabajador eliminado correctamente.");
+                        dataGridView1.DataSource = TrabajadoresAgregar.PresentarRegistros(); // refresca la tabla
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar trabajador.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un trabajador para eliminar.");
+            }
+        }
+
+        private void Regresar_Click(object sender, EventArgs e)
+        {
+            MenuOpciones menuOpciones = new MenuOpciones();
+            menuOpciones.Show();
+            this.Hide();
+        }
+
+        private void btnmin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnmax_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btncerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

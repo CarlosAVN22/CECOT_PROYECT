@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministradoresForms\AdministradoresCRUD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdministradoresForms\AdministradoresCRUD.Designer.cs">
-      <DependentUpon>AdministradoresCRUD.cs</DependentUpon>
-    </Compile>
     <Compile Include="CeldasForms\EditarCelda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,15 +117,26 @@
       <DependentUpon>SeccionesCRUD.cs</DependentUpon>
     </Compile>
     <Compile Include="SeccionesForms\SeccionesObjetos.cs" />
+    <Compile Include="TrabajadoresForms\ObjetosTrabajadores.cs" />
+    <Compile Include="TrabajadoresForms\TrabajadoresAgregar.cs" />
+    <Compile Include="TrabajadoresForms\TrabajadoresEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrabajadoresForms\TrabajadoresEditar.Designer.cs">
+      <DependentUpon>TrabajadoresEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrabajadoresForms\TrabajadoresMostrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrabajadoresForms\TrabajadoresMostrar.Designer.cs">
+      <DependentUpon>TrabajadoresMostrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrabajadoresForms\TrabajdoresCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TrabajadoresForms\TrabajdoresCRUD.Designer.cs">
       <DependentUpon>TrabajdoresCRUD.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdministradoresForms\AdministradoresCRUD.resx">
-      <DependentUpon>AdministradoresCRUD.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CeldasForms\EditarCelda.resx">
       <DependentUpon>EditarCelda.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +179,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeccionesForms\SeccionesCRUD.resx">
       <DependentUpon>SeccionesCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrabajadoresForms\TrabajadoresEditar.resx">
+      <DependentUpon>TrabajadoresEditar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrabajadoresForms\TrabajadoresMostrar.resx">
+      <DependentUpon>TrabajadoresMostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrabajadoresForms\TrabajdoresCRUD.resx">
       <DependentUpon>TrabajdoresCRUD.cs</DependentUpon>
