@@ -1,6 +1,6 @@
-﻿namespace CECOT_PROYECT.CeldasForms
+﻿namespace CECOT_PROYECT.SeccionesForms
 {
-    partial class AgregarCelda
+    partial class EditarSeccion
     {
         /// <summary>
         /// Required designer variable.
@@ -37,11 +37,9 @@
             this.cmbSeccion = new System.Windows.Forms.ComboBox();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.numCapacidadReos = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbTipoCelda = new System.Windows.Forms.ComboBox();
+            this.numCapacidadCelda = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCapacidadReos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCapacidadCelda)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -61,11 +59,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(202, 121);
+            this.label2.Location = new System.Drawing.Point(63, 124);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 19);
+            this.label2.Size = new System.Drawing.Size(26, 19);
             this.label2.TabIndex = 22;
-            this.label2.Text = "ID:";
+            this.label2.Text = "ID";
             // 
             // label1
             // 
@@ -73,11 +71,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(164, 211);
+            this.label1.Location = new System.Drawing.Point(63, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 19);
+            this.label1.Size = new System.Drawing.Size(137, 19);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Seccion:";
+            this.label1.Text = "Tipo de celda  :";
             // 
             // label4
             // 
@@ -85,7 +83,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(128, 245);
+            this.label4.Location = new System.Drawing.Point(105, 215);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 19);
             this.label4.TabIndex = 25;
@@ -105,7 +103,7 @@
             // txtceldaid
             // 
             this.txtceldaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtceldaid.Location = new System.Drawing.Point(275, 121);
+            this.txtceldaid.Location = new System.Drawing.Point(108, 116);
             this.txtceldaid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtceldaid.Name = "txtceldaid";
             this.txtceldaid.ReadOnly = true;
@@ -116,12 +114,11 @@
             // 
             this.cmbSeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSeccion.FormattingEnabled = true;
-            this.cmbSeccion.Location = new System.Drawing.Point(269, 208);
+            this.cmbSeccion.Location = new System.Drawing.Point(224, 167);
             this.cmbSeccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSeccion.Name = "cmbSeccion";
-            this.cmbSeccion.Size = new System.Drawing.Size(299, 28);
+            this.cmbSeccion.Size = new System.Drawing.Size(297, 28);
             this.cmbSeccion.TabIndex = 36;
-            this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
             // 
             // btn_guardar
             // 
@@ -137,7 +134,7 @@
             this.btn_guardar.TabIndex = 37;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.btn_guardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // button1
             // 
@@ -153,53 +150,23 @@
             this.button1.TabIndex = 38;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // numCapacidadReos
+            // numCapacidadCelda
             // 
-            this.numCapacidadReos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCapacidadReos.Location = new System.Drawing.Point(269, 245);
-            this.numCapacidadReos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numCapacidadReos.Name = "numCapacidadReos";
-            this.numCapacidadReos.Size = new System.Drawing.Size(125, 30);
-            this.numCapacidadReos.TabIndex = 39;
+            this.numCapacidadCelda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCapacidadCelda.Location = new System.Drawing.Point(224, 215);
+            this.numCapacidadCelda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numCapacidadCelda.Name = "numCapacidadCelda";
+            this.numCapacidadCelda.Size = new System.Drawing.Size(147, 30);
+            this.numCapacidadCelda.TabIndex = 39;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(98, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 19);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "TIpo de Celda :";
-            // 
-            // cmbTipoCelda
-            // 
-            this.cmbTipoCelda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTipoCelda.FormattingEnabled = true;
-            this.cmbTipoCelda.Items.AddRange(new object[] {
-            "Máxima Seguridad",
-            "Común",
-            "Aislamiento"});
-            this.cmbTipoCelda.Location = new System.Drawing.Point(269, 164);
-            this.cmbTipoCelda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbTipoCelda.Name = "cmbTipoCelda";
-            this.cmbTipoCelda.Size = new System.Drawing.Size(299, 28);
-            this.cmbTipoCelda.TabIndex = 41;
-            this.cmbTipoCelda.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCelda_SelectedIndexChanged);
-            // 
-            // AgregarCelda
+            // EditarSeccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
             this.ClientSize = new System.Drawing.Size(580, 352);
-            this.Controls.Add(this.cmbTipoCelda);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.numCapacidadReos);
+            this.Controls.Add(this.numCapacidadCelda);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.cmbSeccion);
@@ -210,11 +177,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "AgregarCelda";
-            this.Text = "AgregarCeldascs";
-            this.Load += new System.EventHandler(this.cmbTipoCelda_SelectedIndexChanged);
+            this.Name = "EditarSeccion";
+            this.Text = "EditarSecciones";
+            this.Load += new System.EventHandler(this.EditarSeccion_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCapacidadReos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCapacidadCelda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,8 +198,6 @@
         private System.Windows.Forms.ComboBox cmbSeccion;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numCapacidadReos;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbTipoCelda;
+        private System.Windows.Forms.NumericUpDown numCapacidadCelda;
     }
 }

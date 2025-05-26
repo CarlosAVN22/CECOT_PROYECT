@@ -36,7 +36,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Agregar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.Button();
-            this.Visualizar = new System.Windows.Forms.Button();
+            this.Actualizar = new System.Windows.Forms.Button();
             this.Editar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -143,27 +143,27 @@
             this.Eliminar.TabIndex = 4;
             this.Eliminar.Text = "Eliminar";
             this.Eliminar.UseVisualStyleBackColor = false;
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
             this.Eliminar.MouseEnter += new System.EventHandler(this.Eliminar_MouseEnter);
             this.Eliminar.MouseLeave += new System.EventHandler(this.Eliminar_MouseLeave);
             // 
-            // Visualizar
+            // Actualizar
             // 
-            this.Visualizar.BackColor = System.Drawing.Color.White;
-            this.Visualizar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.Visualizar.FlatAppearance.BorderSize = 3;
-            this.Visualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Visualizar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Visualizar.Location = new System.Drawing.Point(807, 309);
-            this.Visualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Visualizar.Name = "Visualizar";
-            this.Visualizar.Size = new System.Drawing.Size(128, 50);
-            this.Visualizar.TabIndex = 5;
-            this.Visualizar.Text = "Visualizar";
-            this.Visualizar.UseVisualStyleBackColor = false;
-            this.Visualizar.Click += new System.EventHandler(this.Visualizar_Click);
-            this.Visualizar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseClick);
-            this.Visualizar.MouseEnter += new System.EventHandler(this.Visualizar_MouseEnter);
-            this.Visualizar.MouseLeave += new System.EventHandler(this.Visualizar_MouseLeave);
+            this.Actualizar.BackColor = System.Drawing.Color.White;
+            this.Actualizar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.Actualizar.FlatAppearance.BorderSize = 3;
+            this.Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Actualizar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Actualizar.Location = new System.Drawing.Point(807, 309);
+            this.Actualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Actualizar.Name = "Actualizar";
+            this.Actualizar.Size = new System.Drawing.Size(128, 50);
+            this.Actualizar.TabIndex = 5;
+            this.Actualizar.Text = "Actualizar";
+            this.Actualizar.UseVisualStyleBackColor = false;
+            this.Actualizar.Click += new System.EventHandler(this.Actualizar_Click);
+            this.Actualizar.MouseEnter += new System.EventHandler(this.Visualizar_MouseEnter);
+            this.Actualizar.MouseLeave += new System.EventHandler(this.Visualizar_MouseLeave);
             // 
             // Editar
             // 
@@ -242,7 +242,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(349, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(188, 40);
+            this.label3.Size = new System.Drawing.Size(182, 39);
             this.label3.TabIndex = 13;
             this.label3.Text = "Secciones";
             // 
@@ -260,7 +260,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Editar);
-            this.Controls.Add(this.Visualizar);
+            this.Controls.Add(this.Actualizar);
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.Agregar);
             this.Controls.Add(this.dataGridView1);
@@ -288,7 +288,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button Agregar;
         private System.Windows.Forms.Button Eliminar;
-        private System.Windows.Forms.Button Visualizar;
+        private System.Windows.Forms.Button Actualizar;
         private System.Windows.Forms.Button Editar;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;

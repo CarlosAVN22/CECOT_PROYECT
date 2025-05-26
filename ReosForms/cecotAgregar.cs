@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using CECOT_PROYECT.SeccionesForms;
 
 namespace CECOT_PROYECT.Resources
 {
@@ -23,21 +24,33 @@ namespace CECOT_PROYECT.Resources
 
                     string query = @"
                         INSERT INTO Reos 
-                        (Nombre, Edad, DUI, FechaIngreso, IdCelda) 
+                        (Nombre, Edad, DUI, FechaIngreso, IdCelda,Delito,Sentencia) 
                         VALUES 
-                        (@Nombre, @Edad, @DUI, @FechaIngreso, @IdCelda)";
+                        (@Nombre, @Edad, @DUI, @FechaIngreso, @IdCelda,@Delito,@Sentencia)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conexion))
                     {
                         cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
                         cmd.Parameters.AddWithValue("@Edad", persona.Edad);
-                        cmd.Parameters.AddWithValue("@DUI", persona.DUI);
+                        cmd.Parameters.AddWithValue("@DUI", persona.DUI);                                             
+                        cmd.Parameters.AddWithValue("@Delito", persona.Delito);
+                        cmd.Parameters.AddWithValue("@Sentencia", persona.Sentencia);
                         cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
                         cmd.Parameters.AddWithValue("@IdCelda", persona.IdCelda);
 
                         retorna = cmd.ExecuteNonQuery();
                     }
+
+                    string updateQuery = "UPDATE Celdas SET ReosActuales = ReosActuales + 1 WHERE Id = @IdCelda";
+                    ;
+                    using (SqlCommand updateCmd = new SqlCommand(updateQuery, conexionBD.ObtenerConexion()))
+                    {
+                        updateCmd.Parameters.AddWithValue("@IdCelda", persona.IdCelda);
+                        updateCmd.ExecuteNonQuery();
+                    }
                 }
+
+                
             }
             catch (Exception ex)
             {
@@ -71,27 +84,36 @@ namespace CECOT_PROYECT.Resources
                         return false;
                     }
 
-                    string query = @"
-                        UPDATE Reos 
-                        SET Nombre = @Nombre,
-                            Edad = @Edad,
-                            DUI = @DUI,
-                            FechaIngreso = @FechaIngreso,
-                            IdCelda = @IdCelda
-                        WHERE Id = @Id";
+                    string query = @"UPDATE Reos 
+                                     SET Nombre = @Nombre,
+                                     Edad = @Edad,
+                                     DUI = @DUI,
+                                     FechaIngreso = @FechaIngreso,
+                                     IdCelda = @IdCelda,
+                                     Delito = @Delito,
+                                     Sentencia = @Sentencia,
+                                     TipoCelda = @TipoCelda
+                                     WHERE Id = @Id";
+
 
                     using (SqlCommand cmd = new SqlCommand(query, conexion))
                     {
                         cmd.Parameters.AddWithValue("@Id", persona.Id);
                         cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
                         cmd.Parameters.AddWithValue("@Edad", persona.Edad);
-                        cmd.Parameters.AddWithValue("@DUI", persona.DUI);
-                        cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
+                        cmd.Parameters.AddWithValue("@DUI", persona.DUI);                         
                         cmd.Parameters.AddWithValue("@IdCelda", persona.IdCelda);
+                        cmd.Parameters.AddWithValue("@Delito", persona.Delito);
+                        cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
+                        cmd.Parameters.AddWithValue("@Sentencia", persona.Sentencia);
+                        cmd.Parameters.AddWithValue("@TipoCelda", persona.TipoCelda);
+
 
                         actualizado = cmd.ExecuteNonQuery() > 0;
                     }
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -106,14 +128,23 @@ namespace CECOT_PROYECT.Resources
 
             using (SqlConnection conexion = conexionBD.ObtenerConexion())
             {
-                string query = @"
+
+            
+            string query = @"
                     SELECT 
-                        R.Id, R.Nombre, R.Edad, R.DUI, 
-                        R.FechaIngreso, C.Id AS IdCelda, 
-                        S.Nombre AS NombreSeccion, S.Tipo AS TipoSeccion
+                    R.Id,
+                    R.Nombre, 
+                    R.Edad, 
+                    R.DUI, 
+                    R.Delito, 
+                    R.Sentencia, 
+                    R.FechaIngreso, 
+                    C.Id AS IdCelda, 
+                    S.Tipo AS TipoCelda                    
                     FROM Reos R
                     INNER JOIN Celdas C ON R.IdCelda = C.Id
                     INNER JOIN Secciones S ON C.IdSeccion = S.Id";
+                
 
                 SqlCommand comando = new SqlCommand(query, conexion);
                 SqlDataReader reader = comando.ExecuteReader();
@@ -126,8 +157,11 @@ namespace CECOT_PROYECT.Resources
                         Nombre = reader.GetString(1),
                         Edad = reader.GetInt32(2).ToString(),
                         DUI = reader.GetString(3),
-                        FechaIngreso = reader.GetDateTime(4).ToShortDateString(),
-                        IdCelda = reader.GetInt32(5),
+                        Delito = reader.GetString(4),
+                        Sentencia = $"{reader.GetString(5)} Años",
+                        FechaIngreso = reader.GetDateTime(6).ToShortDateString(),
+                        IdCelda = reader.GetInt32(7),
+                        TipoCelda=reader.GetString(8)
                     };
 
                     lista.Add(reo);
@@ -144,12 +178,42 @@ namespace CECOT_PROYECT.Resources
             {
                 using (SqlConnection conexion = conexionBD.ObtenerConexion())
                 {
-                    string query = "DELETE FROM Reos WHERE Id = @Id";
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    
+
+                    // 1. Obtener la celda a la que pertenece el reo
+                    int idCelda = 0;
+                    string getCeldaQuery = "SELECT IdCelda FROM Reos WHERE Id = @Id";
+                    using (SqlCommand cmdGet = new SqlCommand(getCeldaQuery, conexion))
                     {
-                        comando.Parameters.AddWithValue("@Id", idReo);
-                        return comando.ExecuteNonQuery() > 0;
+                        cmdGet.Parameters.AddWithValue("@Id", idReo);
+                        object result = cmdGet.ExecuteScalar();
+                        if (result == null)
+                            return false; 
+
+                        idCelda = Convert.ToInt32(result);
                     }
+
+                    // 2. Eliminar al reo
+                    string deleteQuery = "DELETE FROM Reos WHERE Id = @Id";
+                    using (SqlCommand cmdDelete = new SqlCommand(deleteQuery, conexion))
+                    {
+                        cmdDelete.Parameters.AddWithValue("@Id", idReo);
+                        int filasAfectadas = cmdDelete.ExecuteNonQuery();
+                        if (filasAfectadas == 0)
+                            return false; 
+                    }
+
+                    // 3. Actualizar la celda (restar un reo)
+                    string updateQuery = "UPDATE Celdas SET ReosActuales = ReosActuales - 1 WHERE Id = @IdCelda";
+                    using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conexion))
+                    {
+                        cmdUpdate.Parameters.AddWithValue("@IdCelda", idCelda);
+                        object result = cmdUpdate.ExecuteNonQuery();
+                        if (result == null)
+                            return false;
+                    }
+
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -158,5 +222,7 @@ namespace CECOT_PROYECT.Resources
                 return false;
             }
         }
+
     }
 }
+

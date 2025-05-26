@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CECOT_PROYECT.SeccionesForms;
 
 namespace CECOT_PROYECT.CeldasForms
 {
@@ -56,5 +57,65 @@ namespace CECOT_PROYECT.CeldasForms
             }
             return false;
         }
+
+        public bool EditarCelda(int idCeldas, int idSecciones, string tipo, int capacidadReos)
+        {
+            string connectionString = @"Server=CRIS;Database=ProyectoCarcelario;Trusted_Connection=True;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "UPDATE Secciones SET Tipo = @Tipo WHERE Id = @IdSeccion; UPDATE Celdas SET CapacidadReos = @Capacidad WHERE Id = @IdCelda;";
+
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Tipo", tipo);
+                    cmd.Parameters.AddWithValue("@Capacidad", capacidadReos);
+                    cmd.Parameters.AddWithValue("@IdSeccion", idSecciones);
+                    cmd.Parameters.AddWithValue("@IdCelda", idCeldas);
+
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+
+                }
+            }
+        }
+
+        public bool EliminarCelda(int idCelda, int idSeccion)
+        {
+            string connectionString = @"Server=CRIS;Database=ProyectoCarcelario;Trusted_Connection=True;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // 1. Eliminar la celda
+                string deleteQuery = "DELETE FROM Celdas WHERE Id = @IdCelda";
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IdCelda", idCelda);
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    if (filasAfectadas == 0)
+                    {
+                        return false; 
+                    }
+                }
+
+                // 2. Actualizar la sección correspondiente
+                string updateQuery = "UPDATE Secciones SET CeldasActuales = CeldasActuales - 1 WHERE Id = @IdSeccion";
+                using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn))
+                {
+                    cmdUpdate.Parameters.AddWithValue("@IdSeccion", idSeccion);
+                    cmdUpdate.ExecuteNonQuery(); 
+                }
+
+                return true;
+            }
+        }
+
+
     }
 }

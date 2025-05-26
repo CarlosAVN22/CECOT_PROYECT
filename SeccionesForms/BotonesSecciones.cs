@@ -11,7 +11,7 @@ namespace CECOT_PROYECT.SeccionesForms
     internal class BotonesSecciones
     {
         string connectionString = @"Server=CRIS;Database=ProyectoCarcelario;Trusted_Connection=True;";
-        public bool CrearSeccion(string nombre, string tipo, int capacidadCeldas)
+        public bool CrearSeccion( string tipo, int capacidadCeldas)
         {
             bool resultado = false;
 
@@ -21,11 +21,11 @@ namespace CECOT_PROYECT.SeccionesForms
                 {
                     conn.Open();
 
-                    string query = "INSERT INTO Secciones (Nombre, Tipo, CapacidadCeldas) VALUES (@nombre, @tipo, @capacidad)";
+                    string query = "INSERT INTO Secciones (Tipo, CapacidadCeldas) VALUES (@tipo, @capacidad)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", nombre);
+                        
                         cmd.Parameters.AddWithValue("@tipo", tipo);
                         cmd.Parameters.AddWithValue("@capacidad", capacidadCeldas);
 
@@ -54,6 +54,47 @@ namespace CECOT_PROYECT.SeccionesForms
 
             return resultado;
         }
+
+        public bool EditarSeccion(int id, string tipo, int capacidadCeldas)
+        {
+            string connectionString = @"Server=CRIS;Database=ProyectoCarcelario;Trusted_Connection=True;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "UPDATE Secciones SET Tipo = @Tipo, CapacidadCeldas = @Capacidad WHERE Id = @Id";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Tipo", tipo);
+                    cmd.Parameters.AddWithValue("@Capacidad", capacidadCeldas);
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
+            }
+        }
+
+        public bool EliminarSeccion(int id)
+        {
+            string connectionString = @"Server=CRIS;Database=ProyectoCarcelario;Trusted_Connection=True;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM Secciones WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                conn.Open();
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+
+                
+            }
+        }
+
+
 
 
     }

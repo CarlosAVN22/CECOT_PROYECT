@@ -25,10 +25,9 @@ namespace CECOT_PROYECT.SeccionesForms
                 {
                     Seccion seccion = new Seccion();
                     seccion.Id = reader.GetInt32(0);
-                    seccion.Nombre = reader.GetString(1);
-                    seccion.Tipo = reader.GetString(2);
-                    seccion.CapacidadCeldas = reader.GetInt32(3);
-                    seccion.CeldasActuales = reader.GetInt32(4);
+                    seccion.Tipo = reader.GetString(1);
+                    seccion.CapacidadCeldas = reader.GetInt32(2);
+                    seccion.CeldasActuales = reader.GetInt32(3);
                     lista.Add(seccion);
                 }
 

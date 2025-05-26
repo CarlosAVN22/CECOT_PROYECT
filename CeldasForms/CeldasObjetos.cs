@@ -13,7 +13,6 @@ namespace CECOT_PROYECT.CeldasForms
             public int Id { get; set; }
 
             public int IdSeccion { get; set; }
-            public string Nombre { get; set; }
 
             public string Tipo { get; set; }
 
@@ -29,7 +28,6 @@ namespace CECOT_PROYECT.CeldasForms
             {
                 this.Id = ID;
                 this.IdSeccion = ID;
-                this.Nombre = Nombre;
                 this.Tipo = Tipo;
                 this.CapacidadReos = CapacidadCeldas;
                 this.ReosActuales = CeldasActuales;

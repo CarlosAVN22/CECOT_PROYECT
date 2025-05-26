@@ -76,18 +76,18 @@ namespace CECOT_PROYECT
 
         private void Visualizar_MouseEnter(object sender, EventArgs e)
         {
-            Visualizar.Size = new Size(Visualizar.Width + 5, Visualizar.Height + 5);
-            Visualizar.BackColor = Color.DimGray;
-            Visualizar.ForeColor = Color.White;
-            Visualizar.FlatAppearance.BorderColor = Color.White;
+            Actualizar.Size = new Size(Actualizar.Width + 5, Actualizar.Height + 5);
+            Actualizar.BackColor = Color.DimGray;
+            Actualizar.ForeColor = Color.White;
+            Actualizar.FlatAppearance.BorderColor = Color.White;
         }
 
         private void Visualizar_MouseLeave(object sender, EventArgs e)
         {
-            Visualizar.Size = new Size(Visualizar.Width - 5, Visualizar.Height - 5);
-            Visualizar.BackColor = Color.White;
-            Visualizar.ForeColor = Color.Black;
-            Visualizar.FlatAppearance.BorderColor = Color.DimGray;
+            Actualizar.Size = new Size(Actualizar.Width - 5, Actualizar.Height - 5);
+            Actualizar.BackColor = Color.White;
+            Actualizar.ForeColor = Color.Black;
+            Actualizar.FlatAppearance.BorderColor = Color.DimGray;
         }
 
         private void Eliminar_MouseEnter(object sender, EventArgs e)
@@ -124,8 +124,8 @@ namespace CECOT_PROYECT
 
         private void Regresar_MouseClick(object sender, MouseEventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            MenuOpciones menuOpciones = new MenuOpciones();
+            menuOpciones.Show();
             this.Hide();
         }
 
@@ -136,12 +136,60 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridView1.CurrentRow != null)
+            {
+                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+                string tipo = dataGridView1.CurrentRow.Cells["Tipo"].Value.ToString();
+                int capacidad = Convert.ToInt32(dataGridView1.CurrentRow.Cells["CapacidadCeldas"].Value);
+
+                EditarSeccion formEditar = new EditarSeccion(id, tipo, capacidad);
+                formEditar.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una fila para editar.");
+            }
         }
 
-        private void Visualizar_Click(object sender, EventArgs e)
+        private void Eliminar_Click(object sender, EventArgs e)
         {
-         
+            if (dataGridView1.CurrentRow != null)
+            {
+                DialogResult confirmacion = MessageBox.Show(
+                    "¿Estás seguro de que deseas eliminar esta sección?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+
+                    BotonesSecciones botones = new BotonesSecciones();
+                    bool eliminado = botones.EliminarSeccion(id);
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show("Sección eliminada correctamente.");
+                        SeccionesCRUD seccionesCRUD = new SeccionesCRUD();
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar la sección.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una fila para eliminar.");
+            }
+        }
+
+        private void Actualizar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource=FuncionesSQL.PresentarRegistros();
         }
     }
 }

@@ -23,13 +23,20 @@ namespace CECOT_PROYECT
             listaOriginal = cecotAgregar.PresentarRegistros();
             dataGridView1.DataSource = listaOriginal;
 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        }
+            // Establecer el orden de las columnas manualmente
+            dataGridView1.Columns["Id"].DisplayIndex = 0;
+            dataGridView1.Columns["Nombre"].DisplayIndex = 1;
+            dataGridView1.Columns["Edad"].DisplayIndex = 2;
+            dataGridView1.Columns["DUI"].DisplayIndex = 3;
+            dataGridView1.Columns["Delito"].DisplayIndex = 4;
+            dataGridView1.Columns["Sentencia"].DisplayIndex = 5;
+            dataGridView1.Columns["FechaIngreso"].DisplayIndex = 6;
+            dataGridView1.Columns["IdCelda"].DisplayIndex = 7;
+            dataGridView1.Columns["TipoCelda"].DisplayIndex = 8;
+            
 
-        public void AgregarFila(string id, string nombre, string edad, string dui, string sentencia,
-                                string fechaIngreso, string celda, string seccion, string tipoSeccion)
-        {
-            dataGridView1.Rows.Add(id, nombre, edad, dui, sentencia, fechaIngreso, celda, seccion, tipoSeccion);
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         public void EditarFila(int fila, Cecot persona)
@@ -54,14 +61,16 @@ namespace CECOT_PROYECT
                 int fila = dataGridView1.CurrentRow.Index;
                 Cecot reo = (Cecot)dataGridView1.Rows[fila].DataBoundItem;
 
-                EditarForm editar = new EditarForm(this, reo, fila);
-                editar.Show();
+                EditarForm editar = new EditarForm(reo.Id); // ✅ Le pasas el ID
+                editar.ShowDialog(); // También puedes usar ShowDialog() para bloquear la ventana anterior hasta cerrar esta
+                 
             }
             else
             {
                 MessageBox.Show("Seleccione un reo para editar.");
             }
         }
+
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
@@ -82,8 +91,7 @@ namespace CECOT_PROYECT
                 if (eliminado)
                 {
                     MessageBox.Show("Reo eliminado correctamente.");
-                    listaOriginal = cecotAgregar.PresentarRegistros();
-                    dataGridView1.DataSource = listaOriginal;
+                    
                 }
                 else
                 {
@@ -96,11 +104,8 @@ namespace CECOT_PROYECT
         {
             if (dataGridView1.CurrentRow != null)
             {
-                int fila = dataGridView1.CurrentRow.Index;
-                Cecot reo = (Cecot)dataGridView1.Rows[fila].DataBoundItem;
-
-                Mostrar mostrar = new Mostrar(this, reo, fila);
-                mostrar.Show();
+                listaOriginal = cecotAgregar.PresentarRegistros();
+                dataGridView1.DataSource = listaOriginal;
             }
         }
 
@@ -156,9 +161,11 @@ namespace CECOT_PROYECT
 
         }
 
-        private void ReosCRUD_Load_1(object sender, EventArgs e)
+        private void Regresar_Click_1(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = cecotAgregar.PresentarRegistros();
+            MenuOpciones menu = new MenuOpciones();
+            menu.Show();
+            this.Close();
         }
     }
 }

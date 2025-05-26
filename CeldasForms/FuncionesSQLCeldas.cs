@@ -17,13 +17,14 @@ namespace CECOT_PROYECT.CeldasForms
 
             using (SqlConnection conexion = conexionBD.ObtenerConexion())
             {
+
+                
                 string query = @"
             SELECT 
                 C.Id, 
                 C.IdSeccion, 
                 C.CapacidadReos, 
                 C.ReosActuales, 
-                S.Nombre, 
                 S.Tipo
                 FROM 
                 Celdas C
@@ -39,9 +40,8 @@ namespace CECOT_PROYECT.CeldasForms
                     celda.Id = reader.GetInt32(0);
                     celda.IdSeccion = reader.GetInt32(1);
                     celda.CapacidadReos = reader.GetInt32(2);
-                    celda.ReosActuales = reader.GetInt32(3);
-                    celda.Nombre = reader.GetString(4);  // Nombre de la sección
-                    celda.Tipo = reader.GetString(5);    // Tipo de la sección
+                    celda.ReosActuales = reader.GetInt32(3);  // Nombre de la sección
+                    celda.Tipo = reader.GetString(4);    // Tipo de la sección
 
                     lista.Add(celda);
                 }

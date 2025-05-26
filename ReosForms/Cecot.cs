@@ -5,11 +5,13 @@
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Edad { get; set; }
-        public int IdCelda { get; set; }
-
         public string DUI { get; set; }
-
         public string FechaIngreso { get; set; }
+        public int IdCelda { get; set; }
+        public string Delito { get; set; }         
+        public string Sentencia { get; set; }         
+        public string TipoCelda { get; set; }      
+
 
         public Cecot() { }
 

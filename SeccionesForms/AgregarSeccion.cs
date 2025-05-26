@@ -32,16 +32,9 @@ namespace CECOT_PROYECT.SeccionesForms
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
-        {
-            string nombre = txtNombre.Text.Trim();
+        {;
             string tipo = cmbSeccion.Text;
             int capacidadCeldas = (int)numCapacidadCelda.Value;
-
-            if (string.IsNullOrEmpty(nombre))
-            {
-                MessageBox.Show("Ingrese un nombre para la sección.");
-                return;
-            }
 
             if (capacidadCeldas <= 0)
             {
@@ -50,12 +43,10 @@ namespace CECOT_PROYECT.SeccionesForms
             }
 
             BotonesSecciones botonesSecciones = new BotonesSecciones();
-            bool exito = botonesSecciones.CrearSeccion(nombre, tipo, capacidadCeldas);
+            bool exito = botonesSecciones.CrearSeccion(tipo, capacidadCeldas);
 
             if (exito)
             {
-                MessageBox.Show("Sección agregada correctamente.");
-                txtNombre.Clear();
                 numCapacidadCelda.Value = 1;
                 cmbSeccion.SelectedIndex = 0;
 
@@ -94,6 +85,11 @@ namespace CECOT_PROYECT.SeccionesForms
             cmbSeccion.Items.Add("Común");
             cmbSeccion.Items.Add("Aislamiento");
             cmbSeccion.SelectedIndex = 0;
+        }
+
+        private void cmbSeccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,7 +17,11 @@ namespace CECOT_PROYECT
         private void AgregarForm_Load(object sender, EventArgs e)
         {
             txtid.ReadOnly = true;
+            CargarTiposDeCelda();
             CargarCeldasDisponibles();
+
+
+            
         }
 
         private void CargarCeldasDisponibles()
@@ -27,7 +31,7 @@ namespace CECOT_PROYECT
                 string query = @"
                     SELECT 
                         C.Id, 
-                        'Celda ' + CAST(C.Id AS VARCHAR) + ' - ' + S.Nombre AS Descripcion
+                        'Celda ' + CAST(C.Id AS VARCHAR) +' - ' +'Bloque ' + CAST(S.Id AS VARCHAR)+' - ' + S.Tipo AS Descripcion
                     FROM Celdas C
                     INNER JOIN Secciones S ON C.IdSeccion = S.Id
                     WHERE C.ReosActuales < C.CapacidadReos";
@@ -36,11 +40,53 @@ namespace CECOT_PROYECT
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+
+
                 cmbCelda.DataSource = dt;
                 cmbCelda.DisplayMember = "Descripcion";
                 cmbCelda.ValueMember = "Id";
             }
         }
+
+        private void CargarTiposDeCelda()
+        {
+            using (SqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                string query = "SELECT DISTINCT Tipo FROM Secciones";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbTipoCelda.DataSource = dt;
+                cmbTipoCelda.DisplayMember = "Tipo";
+                cmbTipoCelda.ValueMember = "Tipo";
+            }
+        }
+
+        private void CargarCeldasPorTipo(string tipoCelda)
+        {
+            using (SqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                string query = @"
+            SELECT 
+                C.Id, 
+                'Celda ' + CAST(C.Id AS VARCHAR) + ' - Bloque ' + CAST(S.Id AS VARCHAR) AS Descripcion
+            FROM Celdas C
+            INNER JOIN Secciones S ON C.IdSeccion = S.Id
+            WHERE C.ReosActuales < C.CapacidadReos AND S.Tipo = @Tipo";
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                da.SelectCommand.Parameters.AddWithValue("@Tipo", tipoCelda);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbCelda.DataSource = dt;
+                cmbCelda.DisplayMember = "Descripcion";
+                cmbCelda.ValueMember = "Id";
+            }
+        }
+
+
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
@@ -55,11 +101,13 @@ namespace CECOT_PROYECT
                 Nombre = txtnombre.Text.Trim(),
                 Edad = txtedad.Text.Trim(),
                 DUI = txtdui.Text.Trim(),
+                Delito = txtcargos.Text.Trim(),
+                Sentencia = ((int)sentenciaNum.Value).ToString(),
                 IdCelda = Convert.ToInt32(cmbCelda.SelectedValue),
-
-
                 FechaIngreso = dateTimePicker1.Value.ToString("yyyy-MM-dd"),
-            };
+
+                
+               };
 
             int resultado = cecotAgregar.AgregarPersona(persona);
 
@@ -141,6 +189,25 @@ namespace CECOT_PROYECT
         private void txtcelda_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTipoCelda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipoCelda.SelectedValue != null)
+            {
+                string tipoSeleccionado = cmbTipoCelda.SelectedValue.ToString();
+                CargarCeldasPorTipo(tipoSeleccionado);
+            }
         }
     }
 }

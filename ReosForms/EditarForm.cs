@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using CECOT_PROYECT.Resources;
 
@@ -13,156 +8,234 @@ namespace CECOT_PROYECT
 {
     public partial class EditarForm : Form
     {
-        private ReosCRUD CentroControlMain;
-        private int Editar = -1;
-        private bool Edicion = false;
-        private Cecot reo;
-        private int fila;
+        public int IdReo { get; set; } // ID del reo a editar
 
-        public EditarForm(ReosCRUD Main)
+        public EditarForm(int idReo)
         {
             InitializeComponent();
-            CentroControlMain = Main;
+            IdReo = idReo;
         }
 
-        public EditarForm(ReosCRUD Main, string ID, string Nombre, string Celda, string Edad, string DUI, string Cargos, string Ingreso, int fila)
+        private void EditarForm_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-            CentroControlMain = Main;
-            Edicion = true;
-            Editar = fila;
+            txtid.ReadOnly = true;
+            txtcargos.ReadOnly = true;
 
-            txtid.Text = ID;
-            txtnombre.Text = Nombre;
-            txtsentencia.Text = Celda;
-            txtedad.Text = Edad;
-            txtdui.Text = DUI;
-            txtcargos.Text = Cargos;
-            txtfechaingreso.Text = Ingreso;
-
-            txtid.Enabled = false;
+            CargarDatosDelReo();
+            CargarTiposDeCelda();
+            CargarCeldasDisponibles();
+            
         }
 
-        public EditarForm(ReosCRUD Main, Cecot reo, int fila) : this(Main)
+        private void CargarDatosDelReo()
         {
-            this.reo = reo;
-            this.fila = fila;
-        }
-
-        private void Registrar_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnregresar_Click(object sender, EventArgs e)
-        {
-            ReosCRUD cerrar = new ReosCRUD();
-            cerrar.Show();
-            this.Close();
-        }
-
-        private void btnregresar_MouseEnter(object sender, EventArgs e)
-        {
-            btnregresar.Size = new Size(btnregresar.Width + 5, btnregresar.Height + 5);
-            btnregresar.BackColor = Color.DimGray;
-            btnregresar.ForeColor = Color.White;
-            btnregresar.FlatAppearance.BorderColor = Color.White;
-        }
-
-        private void btnregresar_MouseLeave(object sender, EventArgs e)
-        {
-            btnregresar.Size = new Size(btnregresar.Width - 5, btnregresar.Height - 5);
-            btnregresar.BackColor = Color.White;
-            btnregresar.ForeColor = Color.Black;
-            btnregresar.FlatAppearance.BorderColor = Color.DimGray;
-        }
-
-        private void Editar_MouseEnter(object sender, EventArgs e)
-        {
-            Guardar.Size = new Size(Guardar.Width + 5, Guardar.Height + 5);
-            Guardar.BackColor = Color.DimGray;
-            Guardar.ForeColor = Color.White;
-            Guardar.FlatAppearance.BorderColor = Color.White;
-        }
-
-        private void Editar_MouseLeave(object sender, EventArgs e)
-        {
-            Guardar.Size = new Size(Guardar.Width - 5, Guardar.Height - 5);
-            Guardar.BackColor = Color.White;
-            Guardar.ForeColor = Color.Black;
-            Guardar.FlatAppearance.BorderColor = Color.DimGray;
-        }
-
-        private void btnEliminar_MouseEnter(object sender, EventArgs e)
-        {
-            btnEliminar.Size = new Size(btnEliminar.Width + 5, btnEliminar.Height + 5);
-            btnEliminar.BackColor = Color.DimGray;
-            btnEliminar.ForeColor = Color.White;
-            btnEliminar.FlatAppearance.BorderColor = Color.White;
-        }
-
-        private void btnEliminar_MouseLeave(object sender, EventArgs e)
-        {
-            btnEliminar.Size = new Size(btnEliminar.Width - 5, btnEliminar.Height - 5);
-            btnEliminar.BackColor = Color.White;
-            btnEliminar.ForeColor = Color.Black;
-            btnEliminar.FlatAppearance.BorderColor = Color.DimGray;
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Editar_Click(object sender, EventArgs e)
-        {
-            Cecot persona = new Cecot
+            using (SqlConnection conn = conexionBD.ObtenerConexion())
             {
-                Id = int.Parse(txtid.Text),
-                Nombre = txtnombre.Text,
-                Edad = txtedad.Text, // o int.Parse(txtEdad.Text) si usas int
-                FechaIngreso = txtfechaingreso.Text // o dtpFechaIngreso.Value si usas DateTimePicker
-            };
+               
+                string query = "SELECT Nombre, Edad, DUI, Delito, Sentencia, IdCelda, FechaIngreso FROM Reos WHERE Id = @Id";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", IdReo);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            txtnombre.Text = reader["Nombre"].ToString();
+                            txtedad.Text = reader["Edad"].ToString();
+                            txtdui.Text = reader["DUI"].ToString();
+                            txtcargos.Text = reader["Delito"].ToString();
+                            sentenciaNum.Value = Convert.ToInt32(reader["Sentencia"]);
+                            dateTimePicker1.Value = Convert.ToDateTime(reader["FechaIngreso"]);
+                            cmbCelda.SelectedValue = Convert.ToInt32(reader["IdCelda"]);
+                        }
+                    }
+                }
+            }
+        }
 
-            bool exito = cecotAgregar.ActualizarPersona(persona);
-
-            if(Edicion && Editar != -1)
+        private void CargarCeldasDisponibles()
+        {
+            using (SqlConnection conn = conexionBD.ObtenerConexion())
             {
-                CentroControlMain.EditarFila(Editar,persona);  
+                string query = @"
+                    SELECT 
+                        C.Id, 
+                        'Celda ' + CAST(C.Id AS VARCHAR) +' - ' +'Bloque ' + CAST(S.Id AS VARCHAR)+' - ' + S.Tipo AS Descripcion
+                    FROM Celdas C
+                    INNER JOIN Secciones S ON C.IdSeccion = S.Id
+                    WHERE C.ReosActuales < C.CapacidadReos";
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbCelda.DataSource = dt;
+                cmbCelda.DisplayMember = "Descripcion";
+                cmbCelda.ValueMember = "Id";
+            }
+        }
+
+        private void CargarTiposDeCelda()
+        {
+            using (SqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                string query = "SELECT DISTINCT Tipo FROM Secciones";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbTipoCelda.DataSource = dt;
+                cmbTipoCelda.DisplayMember = "Tipo";
+                cmbTipoCelda.ValueMember = "Tipo";
+            }
+        }
+
+        private void CargarCeldasPorTipo(string tipoCelda)
+        {
+            using (SqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                string query = @"
+                    SELECT 
+                        C.Id, 
+                        'Celda ' + CAST(C.Id AS VARCHAR) + ' - Bloque ' + CAST(S.Id AS VARCHAR) AS Descripcion
+                    FROM Celdas C
+                    INNER JOIN Secciones S ON C.IdSeccion = S.Id
+                    WHERE C.ReosActuales < C.CapacidadReos AND S.Tipo = @Tipo";
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                da.SelectCommand.Parameters.AddWithValue("@Tipo", tipoCelda);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbCelda.DataSource = dt;
+                cmbCelda.DisplayMember = "Descripcion";
+                cmbCelda.ValueMember = "Id";
+            }
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (cmbCelda.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione una celda disponible.");
+                return;
             }
 
-            
+            try
+            {
+                using (SqlConnection conn = conexionBD.ObtenerConexion())
+                {
+                  
 
-            if (exito)
-                MessageBox.Show("Persona actualizada correctamente.");
-            else
-                MessageBox.Show("No se pudo actualizar la persona.");
+                    int celdaAnterior = 0;
+                    string celdaQuery = "SELECT IdCelda FROM Reos WHERE Id = @IdReo";
+                    using (SqlCommand cmdCelda = new SqlCommand(celdaQuery, conn))
+                    {
+                        cmdCelda.Parameters.AddWithValue("@IdReo", IdReo);
+                        celdaAnterior = Convert.ToInt32(cmdCelda.ExecuteScalar());
+                    }
 
+                    string updateQuery = @"UPDATE Reos 
+                                           SET Nombre = @Nombre, Edad = @Edad, DUI = @DUI, Delito = @Delito, 
+                                               Sentencia = @Sentencia, FechaIngreso = @Fecha, IdCelda = @IdCelda
+                                           WHERE Id = @Id";
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Nombre", txtnombre.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Edad", txtedad.Text.Trim());
+                        cmd.Parameters.AddWithValue("@DUI", txtdui.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Delito", txtcargos.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Sentencia", sentenciaNum.Value);
+                        cmd.Parameters.AddWithValue("@Fecha", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@IdCelda", cmbCelda.SelectedValue);
+                        cmd.Parameters.AddWithValue("@Id", IdReo);
 
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    int celdaNueva = Convert.ToInt32(cmbCelda.SelectedValue);
+                    if (celdaAnterior != celdaNueva)
+                    {
+                        using (SqlCommand cmdUpdate = new SqlCommand("UPDATE Celdas SET ReosActuales = ReosActuales - 1 WHERE Id = @Id", conn))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@Id", celdaAnterior);
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+                        using (SqlCommand cmdUpdate = new SqlCommand("UPDATE Celdas SET ReosActuales = ReosActuales + 1 WHERE Id = @Id", conn))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@Id", celdaNueva);
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Reo actualizado correctamente.");
+                    this.Close();
+                    new ReosCRUD().Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar reo: " + ex.Message);
+            }
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
             this.Close();
-
-            //Formulario agregar = new Formulario();
-            //agregar.Show();
-            //this.Close();
         }
 
-
-
-
-
-        private void txtedad_TextChanged(object sender, EventArgs e)
+        private void txtdui_KeyPress(object sender, KeyPressEventArgs e)
         {
+            char ch = e.KeyChar;
+            if (ch == (char)Keys.Back) return;
 
+            string currentText = txtdui.Text;
+            if (currentText.Length >= 10) { e.Handled = true; return; }
+
+            if (currentText.Length == 8)
+            {
+                if (ch != '-') e.Handled = true;
+            }
+            else if (!char.IsDigit(ch))
+            {
+                e.Handled = true;
+            }
         }
 
-        private void txtnombre_TextChanged(object sender, EventArgs e)
+        private void txtedad_Leave(object sender, EventArgs e)
         {
+            if (int.TryParse(txtedad.Text, out int edad))
+            {
+                if (edad < 18)
+                {
+                    MessageBox.Show("La edad mínima permitida es 18 años.");
+                    txtedad.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese una edad válida.");
+                txtedad.Focus();
+            }
+        }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Value > DateTime.Today)
+            {
+                MessageBox.Show("La fecha de ingreso no puede ser futura.");
+                dateTimePicker1.Focus();
+            }
+        }
+
+        private void cmbTipoCelda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipoCelda.SelectedValue != null)
+            {
+                string tipoSeleccionado = cmbTipoCelda.SelectedValue.ToString();
+                CargarCeldasPorTipo(tipoSeleccionado);
+            }
         }
     }
 }
+

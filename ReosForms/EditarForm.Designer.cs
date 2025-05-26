@@ -1,6 +1,6 @@
 ﻿namespace CECOT_PROYECT
 {
-    partial class AgregarForm
+    partial class EditarForm
     {
         /// <summary>
         /// Required designer variable.
@@ -259,7 +259,7 @@
             this.label1.Size = new System.Drawing.Size(149, 19);
             this.label1.TabIndex = 41;
             this.label1.Text = "Sentencia(Años):";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+           
             // 
             // cmbTipoCelda
             // 
@@ -281,7 +281,7 @@
             this.label9.Size = new System.Drawing.Size(134, 19);
             this.label9.TabIndex = 43;
             this.label9.Text = "Tipo de Celda :";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+          
             // 
             // AgregarForm
             // 
@@ -313,7 +313,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AgregarForm";
             this.Text = "Formulario";
-            this.Load += new System.EventHandler(this.AgregarForm_Load);
+            this.Load += new System.EventHandler(this.EditarForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sentenciaNum)).EndInit();
             this.ResumeLayout(false);

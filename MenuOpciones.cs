@@ -75,14 +75,14 @@ namespace CECOT_PROYECT
         {
             SeccionesCRUD seccionesCRUD = new SeccionesCRUD(); 
             seccionesCRUD.Show();
-            this.Hide();    
+            this.Close();    
         }
 
         private void btnCeldas_Click(object sender, EventArgs e)
         {
             CeldasCRUD celdasCRUD = new CeldasCRUD();  
             celdasCRUD.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

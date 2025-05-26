@@ -38,8 +38,6 @@
             this.btn_guardar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.numCapacidadCelda = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacidadCelda)).BeginInit();
             this.SuspendLayout();
@@ -85,7 +83,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(63, 242);
+            this.label4.Location = new System.Drawing.Point(105, 215);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 19);
             this.label4.TabIndex = 25;
@@ -121,6 +119,7 @@
             this.cmbSeccion.Name = "cmbSeccion";
             this.cmbSeccion.Size = new System.Drawing.Size(297, 28);
             this.cmbSeccion.TabIndex = 36;
+            this.cmbSeccion.SelectedIndexChanged += new System.EventHandler(this.cmbSeccion_SelectedIndexChanged);
             // 
             // btn_guardar
             // 
@@ -157,32 +156,11 @@
             // numCapacidadCelda
             // 
             this.numCapacidadCelda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCapacidadCelda.Location = new System.Drawing.Point(212, 236);
+            this.numCapacidadCelda.Location = new System.Drawing.Point(224, 215);
             this.numCapacidadCelda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numCapacidadCelda.Name = "numCapacidadCelda";
             this.numCapacidadCelda.Size = new System.Drawing.Size(147, 30);
             this.numCapacidadCelda.TabIndex = 39;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(87, 207);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 19);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(224, 200);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(135, 30);
-            this.txtNombre.TabIndex = 41;
             // 
             // AgregarSeccion
             // 
@@ -190,8 +168,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
             this.ClientSize = new System.Drawing.Size(580, 352);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.numCapacidadCelda);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_guardar);
@@ -225,7 +201,5 @@
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown numCapacidadCelda;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNombre;
     }
 }

@@ -52,6 +52,12 @@
     <Compile Include="AdministradoresForms\AdministradoresCRUD.Designer.cs">
       <DependentUpon>AdministradoresCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="CeldasForms\EditarCelda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CeldasForms\EditarCelda.Designer.cs">
+      <DependentUpon>EditarCelda.cs</DependentUpon>
+    </Compile>
     <Compile Include="CeldasForms\AgregarCelda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,30 +73,23 @@
     </Compile>
     <Compile Include="CeldasForms\FuncionesSQLCeldas.cs" />
     <Compile Include="CeldasForms\CeldasObjetos.cs" />
+    <Compile Include="ReosForms\EditarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReosForms\EditarForm.Designer.cs">
+      <DependentUpon>EditarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReosForms\ReosCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReosForms\ReosCRUD.Designer.cs">
       <DependentUpon>ReosCRUD.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReosForms\EditarForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReosForms\.Designer.cs">
-      <DependentUpon>EditarForm.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MenuOpciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuOpciones.Designer.cs">
       <DependentUpon>MenuOpciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReosForms\Mostrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReosForms\Mostrar.Designer.cs">
-      <DependentUpon>Mostrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -103,6 +102,12 @@
     <Compile Include="ReosForms\Cecot.cs" />
     <Compile Include="ReosForms\cecotAgregar.cs" />
     <Compile Include="Resources\conexionBD.cs" />
+    <Compile Include="SeccionesForms\EditarSeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeccionesForms\EditarSeccion.Designer.cs">
+      <DependentUpon>EditarSeccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeccionesForms\AgregarSeccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,11 +132,17 @@
     <EmbeddedResource Include="AdministradoresForms\AdministradoresCRUD.resx">
       <DependentUpon>AdministradoresCRUD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CeldasForms\EditarCelda.resx">
+      <DependentUpon>EditarCelda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CeldasForms\AgregarCelda.resx">
       <DependentUpon>AgregarCelda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CeldasForms\CeldasCRUD.resx">
       <DependentUpon>CeldasCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReosForms\EditarForm.resx">
+      <DependentUpon>EditarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReosForms\AgregarForm.resx">
       <DependentUpon>AgregarForm.cs</DependentUpon>
@@ -139,14 +150,8 @@
     <EmbeddedResource Include="ReosForms\ReosCRUD.resx">
       <DependentUpon>ReosCRUD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReosForms\EditarForm.resx">
-      <DependentUpon>EditarForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MenuOpciones.resx">
       <DependentUpon>MenuOpciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReosForms\Mostrar.resx">
-      <DependentUpon>Mostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -161,6 +166,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SeccionesForms\EditarSeccion.resx">
+      <DependentUpon>EditarSeccion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SeccionesForms\AgregarSeccion.resx">
       <DependentUpon>AgregarSeccion.cs</DependentUpon>
     </EmbeddedResource>

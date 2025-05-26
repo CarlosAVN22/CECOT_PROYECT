@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CECOT_PROYECT.Resources;
 
 namespace CECOT_PROYECT.CeldasForms
 {
@@ -26,16 +27,11 @@ namespace CECOT_PROYECT.CeldasForms
             this.Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (cmbCelda.SelectedValue != null)
+            if (cmbSeccion.SelectedValue != null)
             {
-                int idSeccion = Convert.ToInt32(cmbCelda.SelectedValue);
+                int idSeccion = Convert.ToInt32(cmbSeccion.SelectedValue);
                 int capacidadReos = (int)numCapacidadReos.Value;
 
                 BotonosCeldas botonosCeldas = new BotonosCeldas();
@@ -45,7 +41,7 @@ namespace CECOT_PROYECT.CeldasForms
                 if (exito)
                 {
                     MessageBox.Show("Celda agregada correctamente.");
-                    // Aquí puedes recargar datos o limpiar campos
+                    this.Close();
                 }
                 else
                 {
@@ -65,7 +61,7 @@ namespace CECOT_PROYECT.CeldasForms
             {
                 conn.Open();
 
-                string query = "SELECT Id, Nombre, Tipo FROM Secciones";
+                string query = "SELECT Id, Tipo FROM Secciones";
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -75,19 +71,59 @@ namespace CECOT_PROYECT.CeldasForms
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    row["Descripcion"] = $"{row["Nombre"]} - {row["Tipo"]}";
+                    row["Descripcion"] = $"Bloque{row["Id"]} - {row["Tipo"]}";
                 }
 
-                cmbCelda.DataSource = dt;
-                cmbCelda.DisplayMember = "Descripcion";  // Mostrará "Bloque A - Máxima Seguridad"
-                cmbCelda.ValueMember = "Id";             // El valor que usarás internamente
+                cmbSeccion.DataSource = dt;
+                cmbSeccion.DisplayMember = "Descripcion";  
+                cmbSeccion.ValueMember = "Id";             
+            }
+        }
+
+        private void cmbTipoCelda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipoCelda.SelectedItem != null)
+            {
+                string tipoSeleccionado = cmbTipoCelda.SelectedItem.ToString();
+                CargarSeccionesPorTipo(tipoSeleccionado);
+            }
+        }
+
+        private void CargarSeccionesPorTipo(string tipoCelda)
+        {
+            using (SqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                string query = @"
+                                SELECT 
+                                S.Id, 
+                                'Seccion ' + CAST(S.Id AS VARCHAR(10)) + ' - ' + S.Tipo AS Descripcion
+                            FROM Secciones S                      
+                            WHERE S.Tipo=@Tipo";
+
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                da.SelectCommand.Parameters.AddWithValue("@Tipo", tipoCelda);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbSeccion.DataSource = dt;
+                cmbSeccion.DisplayMember = "Descripcion";
+                cmbSeccion.ValueMember = "Id";
             }
         }
 
 
+
+
         private void AgregarCeldascs_Load(object sender, EventArgs e)
         {
-            CargarSeccionesEnComboBox();
+
+
+        }
+
+        private void cmbSeccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
