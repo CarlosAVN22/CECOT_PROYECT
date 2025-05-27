@@ -37,8 +37,18 @@ namespace CECOT_PROYECT
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            AgregarCelda agregarCelda = new AgregarCelda();
-            agregarCelda.Show();
+
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
+            {
+                AgregarCelda agregarCelda = new AgregarCelda();
+                agregarCelda.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
+            }
+            
         }
 
         private void Agregar_MouseEnter(object sender, EventArgs e)
@@ -124,23 +134,32 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
             {
-                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
-                int idSeccion = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdSeccion"].Value);
-                string tipo = dataGridView1.CurrentRow.Cells["Tipo"].Value.ToString();
-                int capacidad = Convert.ToInt32(dataGridView1.CurrentRow.Cells["CapacidadReos"].Value);
+                if (dataGridView1.CurrentRow != null)
+                {
+                    int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+                    int idSeccion = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdSeccion"].Value);
+                    string tipo = dataGridView1.CurrentRow.Cells["Tipo"].Value.ToString();
+                    int capacidad = Convert.ToInt32(dataGridView1.CurrentRow.Cells["CapacidadReos"].Value);
 
-                EditarCelda formEditar = new EditarCelda(id,idSeccion, tipo, capacidad);
-                formEditar.ShowDialog();
+                    EditarCelda formEditar = new EditarCelda(id, idSeccion, tipo, capacidad);
+                    formEditar.ShowDialog();
 
-                // Opcional: recargar tabla después de editar
-                
+                    // Opcional: recargar tabla después de editar
+
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una fila para editar.");
+                }
             }
             else
             {
-                MessageBox.Show("Selecciona una fila para editar.");
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
+            
         }
 
         private void Regresar_Click(object sender, EventArgs e)
@@ -157,39 +176,48 @@ namespace CECOT_PROYECT
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
             {
-                DialogResult confirmacion = MessageBox.Show(
-                    "¿Estás seguro de que deseas eliminar esta sección?",
-                    "Confirmar eliminación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (confirmacion == DialogResult.Yes)
+                if (dataGridView1.CurrentRow != null)
                 {
-                    int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
-                    int idSeccion = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdSeccion"].Value);
+                    DialogResult confirmacion = MessageBox.Show(
+                        "¿Estás seguro de que deseas eliminar esta sección?",
+                        "Confirmar eliminación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
 
-                    BotonosCeldas botones = new BotonosCeldas();
-                    bool eliminado = botones.EliminarCelda(id,idSeccion);
-
-                    if (eliminado)
+                    if (confirmacion == DialogResult.Yes)
                     {
-                        MessageBox.Show("Celda eliminada correctamente.");
-                        SeccionesCRUD seccionesCRUD = new SeccionesCRUD();
+                        int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+                        int idSeccion = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdSeccion"].Value);
 
+                        BotonosCeldas botones = new BotonosCeldas();
+                        bool eliminado = botones.EliminarCelda(id, idSeccion);
+
+                        if (eliminado)
+                        {
+                            MessageBox.Show("Celda eliminada correctamente.");
+                            SeccionesCRUD seccionesCRUD = new SeccionesCRUD();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar la celda.");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("No se pudo eliminar la celda.");
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una fila para eliminar.");
                 }
             }
             else
             {
-                MessageBox.Show("Selecciona una fila para eliminar.");
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
+
         }
     }
 }

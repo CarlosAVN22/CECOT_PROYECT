@@ -24,9 +24,9 @@ namespace CECOT_PROYECT.Resources
 
                     string query = @"
                         INSERT INTO Reos 
-                        (Nombre, Edad, DUI, FechaIngreso, IdCelda,Delito,Sentencia) 
+                        (Nombre, Edad, DUI, FechaIngreso, IdCelda,Delito,Sentencia,FotoPath) 
                         VALUES 
-                        (@Nombre, @Edad, @DUI, @FechaIngreso, @IdCelda,@Delito,@Sentencia)";
+                        (@Nombre, @Edad, @DUI, @FechaIngreso, @IdCelda,@Delito,@Sentencia,@ruta)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conexion))
                     {
@@ -37,6 +37,7 @@ namespace CECOT_PROYECT.Resources
                         cmd.Parameters.AddWithValue("@Sentencia", persona.Sentencia);
                         cmd.Parameters.AddWithValue("@FechaIngreso", persona.FechaIngreso);
                         cmd.Parameters.AddWithValue("@IdCelda", persona.IdCelda);
+                        cmd.Parameters.AddWithValue("@ruta", persona.FotoPath);
 
                         retorna = cmd.ExecuteNonQuery();
                     }

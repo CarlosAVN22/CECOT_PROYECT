@@ -38,8 +38,6 @@
             this.Eliminar = new System.Windows.Forms.Button();
             this.Actualizar = new System.Windows.Forms.Button();
             this.Editar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Regresar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -183,28 +181,6 @@
             this.Editar.MouseEnter += new System.EventHandler(this.Editar_MouseEnter);
             this.Editar.MouseLeave += new System.EventHandler(this.Editar_MouseLeave);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(709, 453);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(78, 24);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(639, 452);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 19);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Celda:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Regresar
             // 
             this.Regresar.BackColor = System.Drawing.Color.White;
@@ -257,8 +233,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Regresar);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Editar);
             this.Controls.Add(this.Actualizar);
             this.Controls.Add(this.Eliminar);
@@ -290,8 +264,6 @@
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.Button Actualizar;
         private System.Windows.Forms.Button Editar;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Regresar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;

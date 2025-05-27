@@ -1,6 +1,6 @@
 ﻿namespace CECOT_PROYECT
 {
-    partial class TrabajadoresCRUD
+    partial class AdministradoresCRUD
     {
         /// <summary>
         /// Required designer variable.
@@ -41,9 +41,9 @@
             this.Regresar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btncerrar = new System.Windows.Forms.Button();
-            this.btnmax = new System.Windows.Forms.Button();
             this.btnmin = new System.Windows.Forms.Button();
+            this.btnmax = new System.Windows.Forms.Button();
+            this.btncerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(41, 91);
+            this.label1.Location = new System.Drawing.Point(44, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 34);
             this.label1.TabIndex = 0;
@@ -66,10 +66,10 @@
             // 
             this.txtbuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbuscar.Location = new System.Drawing.Point(190, 91);
+            this.txtbuscar.Location = new System.Drawing.Point(171, 97);
             this.txtbuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.Size = new System.Drawing.Size(547, 38);
+            this.txtbuscar.Size = new System.Drawing.Size(522, 38);
             this.txtbuscar.TabIndex = 1;
             // 
             // dataGridView1
@@ -94,7 +94,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 148);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 161);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -107,7 +107,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(904, 359);
+            this.dataGridView1.Size = new System.Drawing.Size(834, 296);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -119,10 +119,10 @@
             this.Agregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Agregar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Agregar.Location = new System.Drawing.Point(957, 165);
+            this.Agregar.Location = new System.Drawing.Point(902, 217);
             this.Agregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Agregar.Name = "Agregar";
-            this.Agregar.Size = new System.Drawing.Size(144, 64);
+            this.Agregar.Size = new System.Drawing.Size(128, 56);
             this.Agregar.TabIndex = 3;
             this.Agregar.Text = "Agregar";
             this.Agregar.UseVisualStyleBackColor = false;
@@ -137,10 +137,10 @@
             this.Eliminar.FlatAppearance.BorderSize = 3;
             this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Eliminar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Eliminar.Location = new System.Drawing.Point(957, 450);
+            this.Eliminar.Location = new System.Drawing.Point(902, 468);
             this.Eliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(144, 58);
+            this.Eliminar.Size = new System.Drawing.Size(128, 50);
             this.Eliminar.TabIndex = 4;
             this.Eliminar.Text = "Eliminar";
             this.Eliminar.UseVisualStyleBackColor = false;
@@ -155,10 +155,10 @@
             this.Visualizar.FlatAppearance.BorderSize = 3;
             this.Visualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Visualizar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Visualizar.Location = new System.Drawing.Point(957, 358);
+            this.Visualizar.Location = new System.Drawing.Point(902, 384);
             this.Visualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Visualizar.Name = "Visualizar";
-            this.Visualizar.Size = new System.Drawing.Size(144, 57);
+            this.Visualizar.Size = new System.Drawing.Size(128, 50);
             this.Visualizar.TabIndex = 5;
             this.Visualizar.Text = "Actualizar";
             this.Visualizar.UseVisualStyleBackColor = false;
@@ -174,10 +174,10 @@
             this.Editar.FlatAppearance.BorderSize = 3;
             this.Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Editar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Editar.Location = new System.Drawing.Point(957, 261);
+            this.Editar.Location = new System.Drawing.Point(902, 303);
             this.Editar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Editar.Name = "Editar";
-            this.Editar.Size = new System.Drawing.Size(144, 59);
+            this.Editar.Size = new System.Drawing.Size(128, 50);
             this.Editar.TabIndex = 6;
             this.Editar.Text = "Editar";
             this.Editar.UseVisualStyleBackColor = false;
@@ -192,7 +192,7 @@
             this.Regresar.FlatAppearance.BorderSize = 3;
             this.Regresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Regresar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Regresar.Location = new System.Drawing.Point(30, 532);
+            this.Regresar.Location = new System.Drawing.Point(30, 484);
             this.Regresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Regresar.Name = "Regresar";
             this.Regresar.Size = new System.Drawing.Size(117, 34);
@@ -200,6 +200,7 @@
             this.Regresar.Text = "Cerrar ";
             this.Regresar.UseVisualStyleBackColor = false;
             this.Regresar.Click += new System.EventHandler(this.Regresar_Click);
+            this.Regresar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Regresar_MouseClick);
             this.Regresar.MouseEnter += new System.EventHandler(this.Regresar_MouseEnter);
             this.Regresar.MouseLeave += new System.EventHandler(this.Regresar_MouseLeave);
             // 
@@ -207,9 +208,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::CECOT_PROYECT.Properties.Resources.CECOT_Logo_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(980, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(913, 97);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(87, 88);
+            this.pictureBox1.Size = new System.Drawing.Size(104, 105);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -220,47 +221,11 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(307, 30);
+            this.label3.Location = new System.Drawing.Point(276, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 39);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Trabajadores";
-            // 
-            // btncerrar
-            // 
-            this.btncerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btncerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btncerrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btncerrar.FlatAppearance.BorderSize = 0;
-            this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncerrar.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncerrar.ForeColor = System.Drawing.Color.White;
-            this.btncerrar.Location = new System.Drawing.Point(1116, 2);
-            this.btncerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(46, 48);
-            this.btncerrar.TabIndex = 21;
-            this.btncerrar.Text = "O";
-            this.btncerrar.UseVisualStyleBackColor = false;
-            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
-            // 
-            // btnmax
-            // 
-            this.btnmax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnmax.BackColor = System.Drawing.Color.Transparent;
-            this.btnmax.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnmax.FlatAppearance.BorderSize = 0;
-            this.btnmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmax.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmax.ForeColor = System.Drawing.Color.White;
-            this.btnmax.Location = new System.Drawing.Point(1064, 2);
-            this.btnmax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnmax.Name = "btnmax";
-            this.btnmax.Size = new System.Drawing.Size(46, 48);
-            this.btnmax.TabIndex = 22;
-            this.btnmax.Text = "O";
-            this.btnmax.UseVisualStyleBackColor = false;
-            this.btnmax.Click += new System.EventHandler(this.btnmax_Click);
+            this.label3.Size = new System.Drawing.Size(278, 39);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Administradores";
             // 
             // btnmin
             // 
@@ -271,7 +236,7 @@
             this.btnmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmin.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmin.ForeColor = System.Drawing.Color.White;
-            this.btnmin.Location = new System.Drawing.Point(1012, 2);
+            this.btnmin.Location = new System.Drawing.Point(944, 4);
             this.btnmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnmin.Name = "btnmin";
             this.btnmin.Size = new System.Drawing.Size(46, 48);
@@ -280,17 +245,53 @@
             this.btnmin.UseVisualStyleBackColor = false;
             this.btnmin.Click += new System.EventHandler(this.btnmin_Click);
             // 
-            // TrabajadoresCRUD
+            // btnmax
+            // 
+            this.btnmax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnmax.BackColor = System.Drawing.Color.Transparent;
+            this.btnmax.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnmax.FlatAppearance.BorderSize = 0;
+            this.btnmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmax.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmax.ForeColor = System.Drawing.Color.White;
+            this.btnmax.Location = new System.Drawing.Point(997, 4);
+            this.btnmax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnmax.Name = "btnmax";
+            this.btnmax.Size = new System.Drawing.Size(46, 48);
+            this.btnmax.TabIndex = 22;
+            this.btnmax.Text = "O";
+            this.btnmax.UseVisualStyleBackColor = false;
+            this.btnmax.Click += new System.EventHandler(this.btnmax_Click);
+            // 
+            // btncerrar
+            // 
+            this.btncerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btncerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btncerrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btncerrar.FlatAppearance.BorderSize = 0;
+            this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncerrar.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncerrar.ForeColor = System.Drawing.Color.White;
+            this.btncerrar.Location = new System.Drawing.Point(1049, 4);
+            this.btncerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btncerrar.Name = "btncerrar";
+            this.btncerrar.Size = new System.Drawing.Size(46, 48);
+            this.btncerrar.TabIndex = 21;
+            this.btncerrar.Text = "O";
+            this.btncerrar.UseVisualStyleBackColor = false;
+            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
+            // 
+            // AdministradoresCRUD
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1166, 603);
+            this.ClientSize = new System.Drawing.Size(1094, 564);
             this.ControlBox = false;
-            this.Controls.Add(this.btncerrar);
-            this.Controls.Add(this.btnmax);
             this.Controls.Add(this.btnmin);
+            this.Controls.Add(this.btnmax);
+            this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Regresar);
@@ -303,7 +304,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "TrabajadoresCRUD";
+            this.Name = "AdministradoresCRUD";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -328,8 +329,8 @@
         private System.Windows.Forms.Button Regresar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btncerrar;
-        private System.Windows.Forms.Button btnmax;
         private System.Windows.Forms.Button btnmin;
+        private System.Windows.Forms.Button btnmax;
+        private System.Windows.Forms.Button btncerrar;
     }
 }

@@ -41,6 +41,8 @@ namespace CECOT_PROYECT.CeldasForms
                 if (exito)
                 {
                     MessageBox.Show("Celda agregada correctamente.");
+                    CeldasCRUD celdasCRUD = new CeldasCRUD();
+                    celdasCRUD.Show();
                     this.Close();
                 }
                 else

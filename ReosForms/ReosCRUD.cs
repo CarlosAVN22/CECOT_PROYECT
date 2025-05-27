@@ -23,6 +23,9 @@ namespace CECOT_PROYECT
             listaOriginal = cecotAgregar.PresentarRegistros();
             dataGridView1.DataSource = listaOriginal;
 
+            dataGridView1.Columns["FotoPath"].Visible = false;
+
+
             // Establecer el orden de las columnas manualmente
             dataGridView1.Columns["Id"].DisplayIndex = 0;
             dataGridView1.Columns["Nombre"].DisplayIndex = 1;
@@ -49,55 +52,82 @@ namespace CECOT_PROYECT
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            AgregarForm agregar = new AgregarForm();
-            agregar.Show();
-            this.Close();
+
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
+            {
+                AgregarForm agregar = new AgregarForm();
+                agregar.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a este CRUD");
+            }
+            
         }
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
-            {
-                int fila = dataGridView1.CurrentRow.Index;
-                Cecot reo = (Cecot)dataGridView1.Rows[fila].DataBoundItem;
 
-                EditarForm editar = new EditarForm(reo.Id); // ✅ Le pasas el ID
-                editar.ShowDialog(); // También puedes usar ShowDialog() para bloquear la ventana anterior hasta cerrar esta
-                 
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    int fila = dataGridView1.CurrentRow.Index;
+                    Cecot reo = (Cecot)dataGridView1.Rows[fila].DataBoundItem;
+
+                    EditarForm editar = new EditarForm(reo.Id); 
+                    editar.ShowDialog(); 
+
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un reo para editar.");
+                }
             }
             else
             {
-                MessageBox.Show("Seleccione un reo para editar.");
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
+            
         }
 
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow == null)
+
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
             {
-                MessageBox.Show("Seleccione un reo para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (dataGridView1.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione un reo para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult confirmacion = MessageBox.Show("¿Estás seguro de eliminar este reo?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    int idReo = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+
+                    bool eliminado = cecotAgregar.EliminarRegistro(idReo);
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show("Reo eliminado correctamente.");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar.");
+                    }
+                }
             }
-
-            DialogResult confirmacion = MessageBox.Show("¿Estás seguro de eliminar este reo?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (confirmacion == DialogResult.Yes)
+            else
             {
-                int idReo = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
-
-                bool eliminado = cecotAgregar.EliminarRegistro(idReo);
-
-                if (eliminado)
-                {
-                    MessageBox.Show("Reo eliminado correctamente.");
-                    
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo eliminar.");
-                }
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
+            
         }
 
         private void Visualizar_Click(object sender, EventArgs e)

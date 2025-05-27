@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CECOT_PROYECT.AdministradoresForms;
 
 namespace CECOT_PROYECT
 {
@@ -43,21 +44,53 @@ namespace CECOT_PROYECT
 
         private void Iniciar_Click(object sender, EventArgs e)
         {
-            if (tbbUser.Text=="admin1"  && tbPassword.Text =="caca")
+            if (tbbUser.Text=="1"  && tbPassword.Text =="2")
             {
+                string usuario = tbbUser.Text.Trim();
+                string contraseña = tbPassword.Text;
+
+                    Usuario user = GestorUsuarios.CargarUsuario(); 
+                    Sesion.UsuarioActual = user;
+                    Sesion.UsuarioActual.Cargo="Supervisor";
+               
+                
                 MenuOpciones menu = new MenuOpciones();
                 menu.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show(
-                "Usuario o contraseña incorrectos",       
-                "Advertencia",                             
-                MessageBoxButtons.OK,            
-                MessageBoxIcon.Warning     
-                );
+                string usuario = tbbUser.Text.Trim();
+                string contraseña = tbPassword.Text;
+
+
+
+                if (GestorUsuarios.ValidarLogin(usuario, contraseña))
+                {
+
+                    Usuario user = GestorUsuarios.CargarUsuario(); // Cargar los datos del usuario
+                    Sesion.UsuarioActual = user;
+
+
+                    MessageBox.Show("Ingreso exitoso.");
+                    // Abrir el menú principal o ventana principal
+                    
+                    MenuOpciones menu = new MenuOpciones();
+                    menu.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show(
+                    "Usuario o contraseña incorrectos",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                    );
+                }
             }
+
+           
         }
 
         private void Iniciar_MouseLeave(object sender, EventArgs e)

@@ -59,16 +59,25 @@ namespace CECOT_PROYECT
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            //AdministradoresCRUD administradoresCRUD = new AdministradoresCRUD();
-            //administradoresCRUD.Show();
-            this.Hide();
+            if (Sesion.UsuarioActual.Cargo == "Supervisor")
+            {
+                AdministradoresCRUD administradoresCRUD = new AdministradoresCRUD();
+                administradoresCRUD.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a este CRUD");
+            }
+
+            
         }
 
         private void btnTrabajadores_Click(object sender, EventArgs e)
         {
             TrabajadoresCRUD trabajadoresCRUD = new TrabajadoresCRUD();
             trabajadoresCRUD.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnSecciones_Click(object sender, EventArgs e)

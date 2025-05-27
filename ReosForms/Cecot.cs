@@ -10,7 +10,8 @@
         public int IdCelda { get; set; }
         public string Delito { get; set; }         
         public string Sentencia { get; set; }         
-        public string TipoCelda { get; set; }      
+        public string TipoCelda { get; set; }
+        public string FotoPath { get; set; }
 
 
         public Cecot() { }

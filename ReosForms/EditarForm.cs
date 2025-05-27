@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using CECOT_PROYECT.Resources;
 
 namespace CECOT_PROYECT
 {
-    public partial class EditarForm : Form
+    public partial class EditarForm :Form
     {
+
+        private string rutaImagenSeleccionada = "";
         public int IdReo { get; set; } // ID del reo a editar
 
         public EditarForm(int idReo)
@@ -24,15 +28,15 @@ namespace CECOT_PROYECT
             CargarDatosDelReo();
             CargarTiposDeCelda();
             CargarCeldasDisponibles();
-            
+
         }
 
         private void CargarDatosDelReo()
         {
             using (SqlConnection conn = conexionBD.ObtenerConexion())
             {
-               
-                string query = "SELECT Nombre, Edad, DUI, Delito, Sentencia, IdCelda, FechaIngreso FROM Reos WHERE Id = @Id";
+
+                string query = "SELECT Nombre, Edad, DUI, Delito, Sentencia, IdCelda, FechaIngreso,FotoPath FROM Reos WHERE Id = @Id";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Id", IdReo);
@@ -47,6 +51,26 @@ namespace CECOT_PROYECT
                             sentenciaNum.Value = Convert.ToInt32(reader["Sentencia"]);
                             dateTimePicker1.Value = Convert.ToDateTime(reader["FechaIngreso"]);
                             cmbCelda.SelectedValue = Convert.ToInt32(reader["IdCelda"]);
+
+                            string fotoPath = reader["FotoPath"].ToString();
+                            if (!string.IsNullOrEmpty(fotoPath))
+                            {
+                                string rutaCompleta = Path.Combine(Application.StartupPath, fotoPath);
+                                if (File.Exists(rutaCompleta))
+                                {
+                                    reoFoto.Image = Image.FromFile(rutaCompleta);
+                                    reoFoto.SizeMode = PictureBoxSizeMode.Zoom;
+                                }
+                                else
+                                {
+                                    reoFoto.Image = null; // o imagen por defecto
+                                }
+                            }
+                            else
+                            {
+                                reoFoto.Image = null;
+                            }
+
                         }
                     }
                 }
@@ -125,7 +149,7 @@ namespace CECOT_PROYECT
             {
                 using (SqlConnection conn = conexionBD.ObtenerConexion())
                 {
-                  
+
 
                     int celdaAnterior = 0;
                     string celdaQuery = "SELECT IdCelda FROM Reos WHERE Id = @IdReo";
@@ -137,7 +161,7 @@ namespace CECOT_PROYECT
 
                     string updateQuery = @"UPDATE Reos 
                                            SET Nombre = @Nombre, Edad = @Edad, DUI = @DUI, Delito = @Delito, 
-                                               Sentencia = @Sentencia, FechaIngreso = @Fecha, IdCelda = @IdCelda
+                                               Sentencia = @Sentencia, FechaIngreso = @Fecha, IdCelda = @IdCelda,FotoPath=@FotoPath
                                            WHERE Id = @Id";
                     using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
                     {
@@ -149,6 +173,7 @@ namespace CECOT_PROYECT
                         cmd.Parameters.AddWithValue("@Fecha", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@IdCelda", cmbCelda.SelectedValue);
                         cmd.Parameters.AddWithValue("@Id", IdReo);
+                        cmd.Parameters.AddWithValue("@FotoPath", rutaImagenSeleccionada);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -236,6 +261,49 @@ namespace CECOT_PROYECT
                 CargarCeldasPorTipo(tipoSeleccionado);
             }
         }
+
+        private void EditarImagenBoton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+                ofd.Title = "Selecciona una imagen";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string nombreArchivo = Path.GetFileName(ofd.FileName);
+                    string carpetaDestino = Path.Combine(Application.StartupPath, "FotosReos");
+                    string rutaDestino = Path.Combine(carpetaDestino, nombreArchivo);
+
+                    try
+                    {
+                        
+                        if (!Directory.Exists(carpetaDestino))
+                            Directory.CreateDirectory(carpetaDestino);
+
+                        
+                        if (!File.Exists(rutaDestino))
+                            File.Copy(ofd.FileName, rutaDestino);
+
+                        
+                        rutaImagenSeleccionada = Path.Combine("FotosReos", nombreArchivo);
+
+                        
+                        reoFoto.Image = Image.FromFile(rutaDestino);
+                        reoFoto.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al copiar la imagen: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+
+        private void reoFoto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-

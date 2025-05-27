@@ -37,9 +37,18 @@ namespace CECOT_PROYECT
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            AgregarSeccion agregarSeccion = new AgregarSeccion();
-            agregarSeccion.Show();
-            this.Close();
+
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
+            {
+                AgregarSeccion agregarSeccion = new AgregarSeccion();
+                agregarSeccion.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
+            }
+            
         }
 
         private void Agregar_MouseEnter(object sender, EventArgs e)
@@ -136,55 +145,73 @@ namespace CECOT_PROYECT
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
-            {
-                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
-                string tipo = dataGridView1.CurrentRow.Cells["Tipo"].Value.ToString();
-                int capacidad = Convert.ToInt32(dataGridView1.CurrentRow.Cells["CapacidadCeldas"].Value);
 
-                EditarSeccion formEditar = new EditarSeccion(id, tipo, capacidad);
-                formEditar.ShowDialog();
-            }
-            else
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
             {
-                MessageBox.Show("Selecciona una fila para editar.");
-            }
-        }
-
-        private void Eliminar_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                DialogResult confirmacion = MessageBox.Show(
-                    "¿Estás seguro de que deseas eliminar esta sección?",
-                    "Confirmar eliminación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (confirmacion == DialogResult.Yes)
+                if (dataGridView1.CurrentRow != null)
                 {
                     int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+                    string tipo = dataGridView1.CurrentRow.Cells["Tipo"].Value.ToString();
+                    int capacidad = Convert.ToInt32(dataGridView1.CurrentRow.Cells["CapacidadCeldas"].Value);
 
-                    BotonesSecciones botones = new BotonesSecciones();
-                    bool eliminado = botones.EliminarSeccion(id);
-
-                    if (eliminado)
-                    {
-                        MessageBox.Show("Sección eliminada correctamente.");
-                        SeccionesCRUD seccionesCRUD = new SeccionesCRUD();
-                        
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo eliminar la sección.");
-                    }
+                    EditarSeccion formEditar = new EditarSeccion(id, tipo, capacidad);
+                    formEditar.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una fila para editar.");
                 }
             }
             else
             {
-                MessageBox.Show("Selecciona una fila para eliminar.");
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
+           
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+
+            if (Sesion.UsuarioActual.Cargo == "Supervisor" || Sesion.UsuarioActual.Cargo == "Editor")
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    DialogResult confirmacion = MessageBox.Show(
+                        "¿Estás seguro de que deseas eliminar esta sección?",
+                        "Confirmar eliminación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (confirmacion == DialogResult.Yes)
+                    {
+                        int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
+
+                        BotonesSecciones botones = new BotonesSecciones();
+                        bool eliminado = botones.EliminarSeccion(id);
+
+                        if (eliminado)
+                        {
+                            MessageBox.Show("Sección eliminada correctamente.");
+                            SeccionesCRUD seccionesCRUD = new SeccionesCRUD();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar la sección.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona una fila para eliminar.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
+            }
+           
         }
 
         private void Actualizar_Click(object sender, EventArgs e)

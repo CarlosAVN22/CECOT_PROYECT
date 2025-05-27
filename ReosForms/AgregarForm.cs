@@ -9,6 +9,8 @@ namespace CECOT_PROYECT
 {
     public partial class AgregarForm : Form
     {
+
+        private string rutaImagenSeleccionada = "";
         public AgregarForm()
         {
             InitializeComponent();
@@ -105,9 +107,10 @@ namespace CECOT_PROYECT
                 Sentencia = ((int)sentenciaNum.Value).ToString(),
                 IdCelda = Convert.ToInt32(cmbCelda.SelectedValue),
                 FechaIngreso = dateTimePicker1.Value.ToString("yyyy-MM-dd"),
+                FotoPath = rutaImagenSeleccionada,
 
-                
-               };
+
+            };
 
             int resultado = cecotAgregar.AgregarPersona(persona);
 
@@ -201,12 +204,29 @@ namespace CECOT_PROYECT
 
         }
 
+
         private void cmbTipoCelda_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbTipoCelda.SelectedValue != null)
             {
                 string tipoSeleccionado = cmbTipoCelda.SelectedValue.ToString();
                 CargarCeldasPorTipo(tipoSeleccionado);
+            }
+        }
+
+        private void fotoReo_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+                ofd.Title = "Selecciona una imagen";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    rutaImagenSeleccionada = ofd.FileName;
+                    reoFoto.Image = Image.FromFile(rutaImagenSeleccionada);
+                    reoFoto.SizeMode = PictureBoxSizeMode.Zoom;
+                }
             }
         }
     }

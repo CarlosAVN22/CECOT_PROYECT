@@ -1,4 +1,6 @@
-﻿namespace CECOT_PROYECT
+﻿using System.Windows.Forms;
+
+namespace CECOT_PROYECT
 {
     partial class EditarForm
     {
@@ -49,8 +51,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTipoCelda = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.reoFoto = new System.Windows.Forms.PictureBox();
+            this.fotoReo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sentenciaNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reoFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -58,7 +63,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.CECOT_Logo_removebg_preview;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(225, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(301, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(145, 149);
             this.pictureBox1.TabIndex = 20;
@@ -70,9 +75,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(176, 163);
+            this.label2.Location = new System.Drawing.Point(314, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 24);
+            this.label2.Size = new System.Drawing.Size(31, 19);
             this.label2.TabIndex = 21;
             this.label2.Text = "ID:";
             // 
@@ -82,7 +87,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(125, 202);
+            this.label3.Location = new System.Drawing.Point(257, 206);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 19);
             this.label3.TabIndex = 22;
@@ -94,7 +99,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(142, 275);
+            this.label7.Location = new System.Drawing.Point(274, 276);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 19);
             this.label7.TabIndex = 23;
@@ -106,7 +111,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(150, 307);
+            this.label4.Location = new System.Drawing.Point(282, 307);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 19);
             this.label4.TabIndex = 24;
@@ -118,7 +123,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(165, 341);
+            this.label5.Location = new System.Drawing.Point(297, 341);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 19);
             this.label5.TabIndex = 25;
@@ -130,7 +135,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(138, 383);
+            this.label6.Location = new System.Drawing.Point(265, 372);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 19);
             this.label6.TabIndex = 26;
@@ -142,7 +147,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(131, 472);
+            this.label8.Location = new System.Drawing.Point(265, 443);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 19);
             this.label8.TabIndex = 27;
@@ -151,7 +156,7 @@
             // txtid
             // 
             this.txtid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtid.Location = new System.Drawing.Point(225, 163);
+            this.txtid.Location = new System.Drawing.Point(363, 163);
             this.txtid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(51, 26);
@@ -159,39 +164,39 @@
             // 
             // txtnombre
             // 
-            this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre.Location = new System.Drawing.Point(225, 202);
+            this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnombre.Location = new System.Drawing.Point(363, 195);
             this.txtnombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(293, 30);
+            this.txtnombre.Size = new System.Drawing.Size(293, 28);
             this.txtnombre.TabIndex = 29;
             // 
             // txtcargos
             // 
-            this.txtcargos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcargos.Location = new System.Drawing.Point(225, 383);
+            this.txtcargos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcargos.Location = new System.Drawing.Point(363, 372);
             this.txtcargos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtcargos.Name = "txtcargos";
-            this.txtcargos.Size = new System.Drawing.Size(293, 30);
+            this.txtcargos.Size = new System.Drawing.Size(293, 28);
             this.txtcargos.TabIndex = 31;
             // 
             // txtdui
             // 
-            this.txtdui.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdui.Location = new System.Drawing.Point(225, 341);
+            this.txtdui.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdui.Location = new System.Drawing.Point(363, 341);
             this.txtdui.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdui.Name = "txtdui";
-            this.txtdui.Size = new System.Drawing.Size(293, 30);
+            this.txtdui.Size = new System.Drawing.Size(293, 28);
             this.txtdui.TabIndex = 32;
             this.txtdui.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdui_KeyPress);
             // 
             // txtedad
             // 
-            this.txtedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtedad.Location = new System.Drawing.Point(225, 307);
+            this.txtedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtedad.Location = new System.Drawing.Point(363, 307);
             this.txtedad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtedad.Name = "txtedad";
-            this.txtedad.Size = new System.Drawing.Size(293, 30);
+            this.txtedad.Size = new System.Drawing.Size(293, 28);
             this.txtedad.TabIndex = 33;
             this.txtedad.Leave += new System.EventHandler(this.txtedad_Leave);
             // 
@@ -201,7 +206,7 @@
             this.btn_guardar.FlatAppearance.BorderSize = 3;
             this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.Location = new System.Drawing.Point(154, 529);
+            this.btn_guardar.Location = new System.Drawing.Point(234, 511);
             this.btn_guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(133, 40);
@@ -216,7 +221,7 @@
             this.btn_cancelar.FlatAppearance.BorderSize = 3;
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.Location = new System.Drawing.Point(312, 529);
+            this.btn_cancelar.Location = new System.Drawing.Point(407, 511);
             this.btn_cancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(133, 40);
@@ -227,25 +232,28 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(225, 472);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(363, 443);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(293, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(293, 28);
             this.dateTimePicker1.TabIndex = 37;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // cmbCelda
             // 
+            this.cmbCelda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCelda.FormattingEnabled = true;
-            this.cmbCelda.Location = new System.Drawing.Point(225, 275);
+            this.cmbCelda.Location = new System.Drawing.Point(363, 269);
             this.cmbCelda.Name = "cmbCelda";
-            this.cmbCelda.Size = new System.Drawing.Size(293, 24);
+            this.cmbCelda.Size = new System.Drawing.Size(293, 30);
             this.cmbCelda.TabIndex = 39;
             // 
             // sentenciaNum
             // 
-            this.sentenciaNum.Location = new System.Drawing.Point(225, 434);
+            this.sentenciaNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sentenciaNum.Location = new System.Drawing.Point(363, 407);
             this.sentenciaNum.Name = "sentenciaNum";
-            this.sentenciaNum.Size = new System.Drawing.Size(293, 22);
+            this.sentenciaNum.Size = new System.Drawing.Size(293, 28);
             this.sentenciaNum.TabIndex = 40;
             // 
             // label1
@@ -254,19 +262,19 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(62, 433);
+            this.label1.Location = new System.Drawing.Point(196, 407);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 19);
             this.label1.TabIndex = 41;
             this.label1.Text = "Sentencia(Años):";
-           
             // 
             // cmbTipoCelda
             // 
+            this.cmbTipoCelda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoCelda.FormattingEnabled = true;
-            this.cmbTipoCelda.Location = new System.Drawing.Point(225, 244);
+            this.cmbTipoCelda.Location = new System.Drawing.Point(363, 230);
             this.cmbTipoCelda.Name = "cmbTipoCelda";
-            this.cmbTipoCelda.Size = new System.Drawing.Size(293, 24);
+            this.cmbTipoCelda.Size = new System.Drawing.Size(293, 30);
             this.cmbTipoCelda.TabIndex = 42;
             this.cmbTipoCelda.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCelda_SelectedIndexChanged);
             // 
@@ -276,19 +284,41 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(77, 244);
+            this.label9.Location = new System.Drawing.Point(209, 244);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(134, 19);
             this.label9.TabIndex = 43;
             this.label9.Text = "Tipo de Celda :";
-          
             // 
-            // AgregarForm
+            // reoFoto
+            // 
+            this.reoFoto.BackColor = System.Drawing.Color.Transparent;
+            this.reoFoto.Location = new System.Drawing.Point(37, 172);
+            this.reoFoto.Name = "reoFoto";
+            this.reoFoto.Size = new System.Drawing.Size(126, 130);
+            this.reoFoto.TabIndex = 45;
+            this.reoFoto.TabStop = false;
+            this.reoFoto.Click += new System.EventHandler(this.reoFoto_Click);
+            // 
+            // fotoReo
+            // 
+            this.fotoReo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fotoReo.Location = new System.Drawing.Point(51, 317);
+            this.fotoReo.Name = "fotoReo";
+            this.fotoReo.Size = new System.Drawing.Size(98, 33);
+            this.fotoReo.TabIndex = 46;
+            this.fotoReo.Text = "Añadir Imagen";
+            this.fotoReo.UseVisualStyleBackColor = true;
+            this.fotoReo.Click += new System.EventHandler(this.EditarImagenBoton_Click);
+            // 
+            // EditarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CECOT_PROYECT.Properties.Resources.fondo2;
-            this.ClientSize = new System.Drawing.Size(589, 627);
+            this.ClientSize = new System.Drawing.Size(722, 635);
+            this.Controls.Add(this.fotoReo);
+            this.Controls.Add(this.reoFoto);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbTipoCelda);
             this.Controls.Add(this.label1);
@@ -311,11 +341,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AgregarForm";
+            this.Name = "EditarForm";
             this.Text = "Formulario";
             this.Load += new System.EventHandler(this.EditarForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sentenciaNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reoFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,5 +375,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbTipoCelda;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox reoFoto;
+        private System.Windows.Forms.Button fotoReo;
     }
 }
