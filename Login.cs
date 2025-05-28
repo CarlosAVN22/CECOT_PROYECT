@@ -44,7 +44,7 @@ namespace CECOT_PROYECT
 
         private void Iniciar_Click(object sender, EventArgs e)
         {
-            if (tbbUser.Text=="1"  && tbPassword.Text =="2")
+            if (tbbUser.Text=="AdministradorJefe"  && tbPassword.Text =="12345678")
             {
                 string usuario = tbbUser.Text.Trim();
                 string contraseña = tbPassword.Text;

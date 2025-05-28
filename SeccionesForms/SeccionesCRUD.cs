@@ -218,5 +218,11 @@ namespace CECOT_PROYECT
         {
             dataGridView1.DataSource=FuncionesSQL.PresentarRegistros();
         }
+
+        private void txtbuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

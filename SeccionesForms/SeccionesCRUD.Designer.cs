@@ -68,6 +68,7 @@
             this.txtbuscar.Name = "txtbuscar";
             this.txtbuscar.Size = new System.Drawing.Size(607, 38);
             this.txtbuscar.TabIndex = 1;
+            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
             // 
             // dataGridView1
             // 

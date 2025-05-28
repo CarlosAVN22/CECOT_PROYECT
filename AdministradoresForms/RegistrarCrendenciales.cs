@@ -42,7 +42,7 @@ namespace CECOT_PROYECT.AdministradoresForms
             string usuario = txtUsuario.Text.Trim();
             string contraseña = txtContraseña.Text;
 
-            if (contraseña.Length > 8)
+            if (contraseña.Length >= 8)
             {
                 if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contraseña))
                 {

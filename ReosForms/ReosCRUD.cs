@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using CECOT_PROYECT.CeldasForms;
 using CECOT_PROYECT.Resources;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace CECOT_PROYECT
 {
     public partial class ReosCRUD : Form
     {
         List<Cecot> listaOriginal = new List<Cecot>();
+
 
         public ReosCRUD()
         {
@@ -36,7 +40,7 @@ namespace CECOT_PROYECT
             dataGridView1.Columns["FechaIngreso"].DisplayIndex = 6;
             dataGridView1.Columns["IdCelda"].DisplayIndex = 7;
             dataGridView1.Columns["TipoCelda"].DisplayIndex = 8;
-            
+
 
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -63,7 +67,7 @@ namespace CECOT_PROYECT
             {
                 MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a este CRUD");
             }
-            
+
         }
 
         private void Editar_Click(object sender, EventArgs e)
@@ -76,8 +80,8 @@ namespace CECOT_PROYECT
                     int fila = dataGridView1.CurrentRow.Index;
                     Cecot reo = (Cecot)dataGridView1.Rows[fila].DataBoundItem;
 
-                    EditarForm editar = new EditarForm(reo.Id); 
-                    editar.ShowDialog(); 
+                    EditarForm editar = new EditarForm(reo.Id);
+                    editar.ShowDialog();
 
                 }
                 else
@@ -89,7 +93,7 @@ namespace CECOT_PROYECT
             {
                 MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
-            
+
         }
 
 
@@ -127,7 +131,7 @@ namespace CECOT_PROYECT
             {
                 MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
-            
+
         }
 
         private void Visualizar_Click(object sender, EventArgs e)
@@ -153,8 +157,11 @@ namespace CECOT_PROYECT
                 c.Id.ToString().Contains(texto) ||
                 (c.Nombre != null && c.Nombre.ToLower().Contains(texto)) ||
                 (c.Edad != null && c.Edad.ToLower().Contains(texto)) ||
+                (c.DUI != null && c.DUI.ToLower().Contains(texto)) ||
+                (c.Delito != null && c.Delito.ToLower().Contains(texto)) ||
+                (c.Sentencia != null && c.Sentencia.ToLower().Contains(texto)) ||
                 (c.FechaIngreso != null && c.FechaIngreso.ToLower().Contains(texto)) ||
-                (c.DUI != null && c.DUI.ToLower().Contains(texto))
+                (c.TipoCelda != null && c.TipoCelda.ToLower().Contains(texto))
             ).ToList();
 
             dataGridView1.DataSource = resultados;
@@ -197,6 +204,78 @@ namespace CECOT_PROYECT
             menu.Show();
             this.Close();
         }
+
+        private void btnPdf_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4);
+            SaveFileDialog save = new SaveFileDialog
+            {
+                Filter = "PDF files (*.pdf)|*.pdf",
+                Title = "Guardar PDF",
+                FileName = "ReosExport.pdf"
+            };
+
+            if (save.ShowDialog() != DialogResult.OK)
+                return;
+
+            try
+            {
+                using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
+                {
+                    PdfWriter.GetInstance(doc, stream);
+                    doc.Open();
+
+                    // Definir columnas que quieres exportar, excluyendo "FotoPath"
+                    var columnasAExportar = dataGridView1.Columns
+                        .Cast<DataGridViewColumn>()
+                        .Where(c => c.Name != "FotoPath")  // excluye FotoPath
+                        .ToList();
+
+                    PdfPTable pdfTable = new PdfPTable(columnasAExportar.Count);
+
+                    // Encabezados
+                    foreach (var column in columnasAExportar)
+                    {
+                        PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText))
+                        {
+                            BackgroundColor = BaseColor.LIGHT_GRAY
+                        };
+                        pdfTable.AddCell(cell);
+                    }
+
+                    // Datos
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        foreach (var column in columnasAExportar)
+                        {
+                            string texto = row.Cells[column.Index].Value?.ToString() ?? "";
+                            pdfTable.AddCell(texto);
+                        }
+                    }
+
+                    doc.Add(pdfTable);
+                    doc.Close();
+                }
+
+                System.Diagnostics.Process.Start(save.FileName);
+                MessageBox.Show("PDF generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar PDF: " + ex.Message);
+            }
+        }
+
+
+
     }
 }
 

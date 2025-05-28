@@ -48,7 +48,7 @@ namespace CECOT_PROYECT
             {
                 MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
-            
+
         }
 
         private void Agregar_MouseEnter(object sender, EventArgs e)
@@ -130,7 +130,7 @@ namespace CECOT_PROYECT
             Regresar.ForeColor = Color.Black;
             Regresar.FlatAppearance.BorderColor = Color.DimGray;
         }
-        
+
 
         private void Editar_Click(object sender, EventArgs e)
         {
@@ -159,7 +159,7 @@ namespace CECOT_PROYECT
             {
                 MessageBox.Show("Acceso Denenegado no tienes permisos para acceder a esta Opcion");
             }
-            
+
         }
 
         private void Regresar_Click(object sender, EventArgs e)
@@ -219,5 +219,31 @@ namespace CECOT_PROYECT
             }
 
         }
+
+        private void txtbuscar_TextChanged(object sender, EventArgs e)
+        {
+            string texto = txtbuscar.Text.ToLower();
+
+            var lista = FuncionesSQLCeldas.PresentarRegistros();
+
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                dataGridView1.DataSource = lista;
+                return;
+            }
+
+            var resultados = lista.Where(c =>
+                c.Id.ToString().Contains(texto) ||
+                (c.Tipo != null && c.Tipo.ToLower().Contains(texto))
+            ).ToList();
+
+            dataGridView1.DataSource = resultados;
+
+            
+            dataGridView1.Columns["Id"].DisplayIndex = 0;
+            dataGridView1.Columns["Tipo"].DisplayIndex = 1;
+        }
+
+
     }
 }

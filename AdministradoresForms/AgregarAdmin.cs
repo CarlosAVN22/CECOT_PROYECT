@@ -72,37 +72,60 @@ namespace CECOT_PROYECT.AdministradoresForms
 
         private void AgregarAdminGuardar_Click(object sender, EventArgs e)
         {
-            Administradores admin = new Administradores
+            // Validación de campos requeridos
+            if (string.IsNullOrWhiteSpace(txtAdminName.Text) ||
+                string.IsNullOrWhiteSpace(txtAdminApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtAdminDui.Text) ||
+                ComboAdminGenero.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(txtAdminTel.Text) ||
+                string.IsNullOrWhiteSpace(txtAdminEmail.Text) ||
+                ComboAdminCargo.SelectedItem == null ||
+                ComboAdminDep.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(rutaImagenSeleccionada))
             {
-                Nombre = txtAdminName.Text,
-                Apellido = txtAdminApellido.Text,
-                Dui = txtAdminDui.Text,
-                FechaNacimiento = DateAdminBirth.Value,
-                Género = (ComboAdminGenero.SelectedItem).ToString(), 
-                Telefono = txtAdminTel.Text,
-                Email = txtAdminEmail.Text,
-                FechaIngreso = DateAdminIngreso.Value,
-                Cargo = (ComboAdminCargo.SelectedItem).ToString(),
-                Departamento = (ComboAdminDep.SelectedItem).ToString(),
-                FotoPath = rutaImagenSeleccionada
-            };
-
-            int result = AdministradoresAgregar.AgregarAdministrador(admin);
-
-            if (result > 0)
-            {
-                MessageBox.Show("Administrador agregado correctamente");
-
-                
-                RegistrarCrendenciales registro = new RegistrarCrendenciales(admin.Cargo);
-                registro.ShowDialog();
-                this.Close();
+                MessageBox.Show("Por favor, completa todos los campos antes de continuar.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            try
             {
-                MessageBox.Show("Error al agregar administrador");
+                Administradores admin = new Administradores
+                {
+                    Nombre = txtAdminName.Text,
+                    Apellido = txtAdminApellido.Text,
+                    Dui = txtAdminDui.Text,
+                    FechaNacimiento = DateAdminBirth.Value,
+                    Género = ComboAdminGenero.SelectedItem.ToString(),
+                    Telefono = txtAdminTel.Text,
+                    Email = txtAdminEmail.Text,
+                    FechaIngreso = DateAdminIngreso.Value,
+                    Cargo = ComboAdminCargo.SelectedItem.ToString(),
+                    Departamento = ComboAdminDep.SelectedItem.ToString(),
+                    FotoPath = rutaImagenSeleccionada
+                };
+
+                int result = AdministradoresAgregar.AgregarAdministrador(admin);
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Administrador agregado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RegistrarCrendenciales registro = new RegistrarCrendenciales(admin.Cargo);
+                    registro.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error al agregar administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error inesperado");
+            }
+
         }
+
+        
 
         private void AgregarImagenBoton_Click(object sender, EventArgs e)
         {

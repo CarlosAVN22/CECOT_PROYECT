@@ -139,7 +139,7 @@ namespace CECOT_PROYECT
 
         private void Regresar_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void Visualizar_MouseClick(object sender, MouseEventArgs e)
@@ -205,7 +205,7 @@ namespace CECOT_PROYECT
                     if (eliminado > 0)
                     {
                         MessageBox.Show("Administrador eliminado correctamente.");
-                        dataGridView1.DataSource =AdministradoresAgregar.PresentarRegistros(); // refresca la tabla
+                        dataGridView1.DataSource = AdministradoresAgregar.PresentarRegistros(); // refresca la tabla
                     }
                     else
                     {
@@ -247,6 +247,35 @@ namespace CECOT_PROYECT
             MenuOpciones menuOpciones = new MenuOpciones();
             menuOpciones.Show();
             this.Hide();
+        }
+
+        private void txtbuscar_TextChanged(object sender, EventArgs e)
+        {
+            string texto = txtbuscar.Text.ToLower();
+
+            var lista = AdministradoresAgregar.PresentarRegistros();
+
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                dataGridView1.DataSource = lista;
+                return;
+            }
+
+            var resultados = lista.Where(a =>
+                a.AdministradorID.ToString().Contains(texto) ||
+                (a.Nombre != null && a.Nombre.ToLower().Contains(texto)) ||
+                (a.Apellido != null && a.Apellido.ToLower().Contains(texto)) ||
+                (a.Dui != null && a.Dui.ToLower().Contains(texto)) ||
+                a.FechaNacimiento.ToString("yyyy-MM-dd").Contains(texto) ||
+                (a.Género != null && a.Género.ToLower().Contains(texto)) ||
+                (a.Telefono != null && a.Telefono.ToLower().Contains(texto)) ||
+                (a.Email != null && a.Email.ToLower().Contains(texto)) ||
+                a.FechaIngreso.ToString("yyyy-MM-dd").Contains(texto) ||
+                (a.Cargo != null && a.Cargo.ToLower().Contains(texto)) ||
+                (a.Departamento != null && a.Departamento.ToLower().Contains(texto))
+            ).ToList();
+
+            dataGridView1.DataSource = resultados;
         }
     }
 }
